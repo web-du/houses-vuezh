@@ -249,8 +249,8 @@
                 <div class="part clearfix">
                     <div class="part_left">
                         <ul class="nhouse_list_nav clearfix" ctm-data="list_type" style="position: relative;">
-                            <li id="" :class="{on:isallcalss}" @click="Allfun()"><span id="allUrl" href="">全部房源<span>(25)</span></span></li>
-                            <li id="" :class="{on:isclass == index}" v-for="(item,index) in nhousenav" :key="index" @click="nhousenavfun(item.id,index)">{{item.tags_name}}<span>({{item.total}})</span></li>
+                            <li id="" :class="{on:isallcalss}" @click="Allfun()"><span id="allUrl" href="javascript:void(0);">全部房源<span>({{sum}})</span></span></li>
+                            <li id="" :class="{on:isclass == index}" v-for="(item,index) in nhousenav" :key="index" @click="nhousenavfun(item.id,index,item.total)">{{item.tags_name}}<span>({{item.total}})</span></li>
                             <div class="floatr rankWrap">
                                 <div class="rankBox">
                                         <ul>
@@ -264,10 +264,10 @@
                         </ul>
                         <div class="houses_list houses_list2">
                             <ul>
-                                <li v-for="(item,index) in recruit" :key="index">
+                                <li v-for="(item,index) in recruit" :key="index" >
                                     <div class="houses_info">
-                                        <!-- <a class="houses_img" href=""> -->
-                                        <router-link  class="houses_img" :to="{path:'/shops/shopdetails', query:{id:item.id}}">
+                                         <router-link  class="houses_img" :to="{path:'/shops/shopdetails', query:{id:item.id}}">
+                                        
                                             <img :src="item.b_imgs[0]" width="100%">
                                             <div class="houses_img_info">
                                                 <ul>
@@ -282,11 +282,11 @@
                                                 </ul>
                                             </div>
                                             <span class="houses_type">直销</span>
-                                        </router-link>
+                                         </router-link>
                                         <div class="houses_describe">
                                             <div class="header">
                                                 <a class="title" href="">{{item.b_name}}</a>
-                                                <span class="price fr"><span>{{item.b_price}}</span>&nbsp;<span>万/套</span>
+                                                <span class="price fr"><span>{{item.b_price}}</span>&nbsp;<span>元/天</span>
                                                 <div class="clear"></div>
                                             </span></div>
                                             <div class="addr">
@@ -322,19 +322,15 @@
                                 </li>
                              
                             </ul>
-                            <div class="more_box">
-                                    <div class="more_ssp">
-                                        <a href="">&lt; 上一页</a>
-                                        <span class="cpb current">1</span>
-                                        <a href="">2</a>
-                                        <a href="">3</a>
-                                        <a href="">4</a>
-                                        <a href="">5</a>
-                                        <a href="">6</a>
-                                        <a href="">下一页 &gt;</a>
-                                    </div>
-                                    <div class="clear"></div>
-                            </div>
+                            <el-pagination
+                                background
+                                @size-change="handleSizeChange"
+                                @current-change="handleCurrentChange"
+                                layout="prev, pager, next,slot"
+                                :page-size="10"
+                                :current-page="val"
+                                :total="pagenum">
+                            </el-pagination>
                             <div class="clear"></div>
                         </div>
                     </div>
@@ -738,28 +734,28 @@
     </div>
 </template>
 <script>
-    // import screen from "@/components/main/screen";
-     export default {
+    export default {
         data () {
             return {
                recruit:[],
                nhousenav:[],
-               isclass:-1,
-               isallcalss:true
-               
+                isclass:-1,
+               isallcalss:true,
+                pagenum:0,
+                cateid:"",
+                val:1,
+                sum:0
             }
-        },
-        components:{
-          screen
-          
         },
         created(){
               
             this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:2,b_type:4}).then((response) => {      
-                
+                  
                  this.recruit=response.data.data.data
-                  console.log(this.recruit)  
-                 
+                //   console.log(this.recruit)  
+                 this.pagenum=response.data.data.total
+                 this.sum=response.data.data.total
+                 console.log(this.pagenum)
                 
              }).catch((err) => {
               
@@ -778,36 +774,59 @@
             $(".chioce_result ul li img").click(function(event) {
                 $(this).parent(".chioce_result ul li").remove();
             })
-
-            $(".nhouse_list_nav li").click(function(){
-                console.log(1)
-                $(this).addClass("on")
-            })
-
         },
+        // computed:{
+        //     allsum(){
+        //        var n=0;
+        //        this.nhousenav.forEach(element => {
+        //              n+=element.total
+        //        });
+        //        return n
+        //     }
+        // },
         methods:{
-           nhousenavfun(cate_id,index){
+           nhousenavfun(cate_id,index,pagesnum){
                console.log(cate_id)
-               this.isclass=index
-               this.isallcalss=false
-             this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{house_tags:cate_id,b_type:4}}).then((response) => {      
-               
+                 this.isclass=index
+                 this.isallcalss=false
+                 this.cateid=cate_id
+                 this.val=1
+                 this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{page:1,size:10,house_tags:cate_id,b_lease:2,b_type:4}}).then((response) => {      
+                 this.pagenum=pagesnum
                  this.recruit=response.data.data.data
                     console.log(this.recruit)  
+               
                 
              }).catch((err) => {
               
             })
            },
+      
            Allfun:function(){
-             console.log(1)
-             this.isallcalss=true
-             this.isclass=-1
-            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:2,b_type:4}).then((response) => {      
-               
-                 this.recruit=response.data.data.data
+             this.val=1
+              this.isallcalss=true
+              this.isclass=-1
+               this.cateid=""
+               this.pagenum=this.sum
+              this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:2,b_type:4}).then((response) => {      
+              this.recruit=response.data.data.data
                     console.log(this.recruit)  
                 
+             }).catch((err) => {
+              
+            })
+          },
+              
+            handleSizeChange(val){
+              
+           },
+           handleCurrentChange(val) {
+                this.val=val
+            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{house_tags:this.cateid,page:this.val,size:10,b_lease:2,b_type:4}).then((response) => {      
+                
+                 this.recruit=response.data.data.data
+                  console.log(this.recruit)  
+                           
              }).catch((err) => {
               
             })

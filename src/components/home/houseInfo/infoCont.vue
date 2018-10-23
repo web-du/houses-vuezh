@@ -152,7 +152,7 @@ export default {
         };
     },
     mounted(){
-        this.$http.post('/api/commonality/message/message_details',{id:this.$route.query.id}).then((response) => {
+        this.axios.post(process.env.API_HOST +'commonality/message/message_details',{id:this.$route.query.id}).then((response) => {
             this.title = response.data.data[0][0].post_title
             this.date = response.data.data[0][0].create_time
             this.source = response.data.data[0][0].post_source

@@ -12,7 +12,7 @@
         <layout>
             <template slot="contleft">
                 <!--资讯列表-->
-                <component :is="componentId" :nowId='categoryId'></component>
+                <component :is="componentId" :nowId="categoryId"></component>
             </template>
             <template slot="contright">
                 <!--右侧广告-->
@@ -48,15 +48,15 @@ export default {
         return {
             recruit:[],
             categoryList:[],
-            categoryId:'',
+            categoryId:0,
             componentId:"index",
             tabList:[
-                {title:"首页"},
-                {title:"资讯"},
-                {title:"市场"},
-                {title:"导购"},
-                {title:"专题"},
-                {title:"视频"}
+                {id:0,title:"首页"},
+                {id:1,title:"资讯"},
+                {id:2,title:"市场"},
+                {id:3,title:"导购"},
+                {id:4,title:"专题"},
+                {id:5,title:"视频"}
             ],
             isclass:0
         }
@@ -76,8 +76,8 @@ export default {
         interlocution,
         bottomAd
     },
-    mounted(){
-            this.$http.post('/api/commonality/message/category_list',{page:1,size:6}).then((response) => {          
+    created(){
+            this.axios.post(process.env.API_HOST +'commonality/message/category_list',{page:1,size:6}).then((response) => {          
                  this.categoryList=response.data.data
                  this.categoryId = response.data.data[0].id
                  this.categoryList.forEach((item) => {
@@ -94,7 +94,7 @@ export default {
         methods:{
             tabfun:function(index,item){
                 this.isclass=index
-                this.categoryId = item.id
+                this.categoryId = index+1
                if(index==0){
                     this.componentId="index"
                 }else if(index==1){

@@ -254,9 +254,8 @@
                     <div class="part">
                         <div class="part_left">
                             <ul class="nhouse_list_nav clearfix" ctm-data="list_type" style="position: relative;">
-                                  <li id="" :class="{on:isallcalss}" @click="Allfun()"><span id="allUrl" href="javascript:void(0);">全部房源<span>(25)</span></span></li>
-                                   <li id="" :class="{on:isclass == index}" v-for="(item,index) in nhousenav" :key="index" @click="nhousenavfun(item.id,index)">{{item.tags_name}}<span>({{item.total}})</span></li>
-                                <li class="floatr rankWrap">
+                                  <li id="" :class="{on:isallcalss}" @click="Allfun()"><span id="allUrl" href="javascript:void(0);">全部房源<span>({{sum}})</span></span></li>
+                                  <li id="" :class="{on:isclass == index}" v-for="(item,index) in nhousenav" :key="index" @click="nhousenavfun(item.id,index,item.total)">{{item.tags_name}}<span>({{item.total}})</span></li>
                                     <div class="rankBox">
                                         <ul>
                                             <li><a id="sjina_C01_33" name="order_default" href="" class="cur">默认排序</a></li>
@@ -264,7 +263,7 @@
                                             <li class="arrow_down"><a id="sjina_C01_33_03" name="order_dpcount" href=""><span>发布时间</span><i><img src="@/assets/images/dzlp3.png" alt=""></i></a></li>
                                         </ul>
                                     </div>
-                                </li>
+                                
                             </ul>
                             <div class="houses_list houses_list2">
                                 <ul>
@@ -328,49 +327,54 @@
                                 </ul>
 
                                 <div class="clear"></div>
+
+                                 <el-pagination
+                                    background
+                                    @size-change="handleSizeChange"
+                                    @current-change="handleCurrentChange"
+                                    layout="prev, pager, next,slot"
+                                    :page-size="10"
+                                    :current-page="val"
+                                    :total="pagenum">
+                                </el-pagination>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-                <div class="more_box">
-                     <div class="more_ssp">
-                        <a href="">上一页</a>
-                        <span class="cpb current">1</span>
-                        <a href="">2</a>
-                        <a href="">3</a>
-                        <a href="">4</a>
-                        <a href="">5</a>
-                        <a href="">6</a>
-                        <a href="">下一页 ></a>
-                     </div>         
-             </div>
+                
     </div>
 </template>
 <script>
     export default {
-        data () {
+         data () {
             return {
-             nhousenav:[],
-             recruit:[],
-               isclass:-1,
-               isallcalss:true
-            
+               recruit:[],
+               nhousenav:[],
+                isclass:-1,
+               isallcalss:true,
+                pagenum:0,
+                cateid:"",
+                val:1,
+                sum:0
             }
         },
         created(){
-          
-           
-             this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:1,b_type:3,house_tags:7}).then((response) => {      
-                
+              
+            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_type:3}).then((response) => {      
+                  
                  this.recruit=response.data.data.data
-                  console.log(response)  
-                      
+                //   console.log(this.recruit)  
+                 this.pagenum=response.data.data.total
+                 this.sum=response.data.data.total
+                 console.log(this.pagenum)
+                
              }).catch((err) => {
               
-             })
-              this.axios.post(process.env.API_HOST +'house/Buildings/getHouseTags',{tags_type:5,tags_tag:"fy"}).then((response) => {      
+            })
+            
+              this.axios.post(process.env.API_HOST +'house/Buildings/getHouseTags',{tags_type:8,tags_tag:"fy"}).then((response) => {      
                
                  this.nhousenav=response.data.data
                     console.log(this.nhousenav)  
@@ -382,38 +386,64 @@
         mounted(){
             $(".chioce_result ul li img").click(function(event) {
                 $(this).parent(".chioce_result ul li").remove();
-            });
-               this.house_operast = this.getUrlKey("house_operast") 
-           },
-          methods:{
-            getUrlKey: function (name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null
-            },
-            
-           nhousenavfun(cate_id,index){
+            })
+        },
+        // computed:{
+        //     allsum(){
+        //        var n=0;
+        //        this.nhousenav.forEach(element => {
+        //              n+=element.total
+        //        });
+        //        return n
+        //     }
+        // },
+        methods:{
+           nhousenavfun(cate_id,index,pagesnum){
+               console.log(cate_id)
                  this.isclass=index
-                this.isallcalss=false
-              this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{house_tags:cate_id,b_type:3}}).then((response) => {      
-               
+                 this.isallcalss=false
+                 this.cateid=cate_id
+                 this.val=1
+                 this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{page:1,size:10,house_tags:cate_id,b_type:3}}).then((response) => {      
+                 this.pagenum=pagesnum
                  this.recruit=response.data.data.data
                     console.log(this.recruit)  
+               
                 
              }).catch((err) => {
               
             })
            },
-            Allfun:function(){
+      
+           Allfun:function(){
+             this.val=1
               this.isallcalss=true
-             this.isclass=-1
-            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:1,b_type:3}).then((response) => {      
-               
-                 this.recruit=response.data.data.data
+              this.isclass=-1
+               this.cateid=""
+               this.pagenum=this.sum
+              this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_type:3}).then((response) => {      
+              this.recruit=response.data.data.data
                     console.log(this.recruit)  
                 
              }).catch((err) => {
               
             })
           },
+              
+            handleSizeChange(val){
+              
+           },
+           handleCurrentChange(val) {
+                this.val=val
+            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{house_tags:this.cateid,page:this.val,size:10,b_type:3}).then((response) => {      
+                
+                 this.recruit=response.data.data.data
+                  console.log(this.recruit)  
+                           
+             }).catch((err) => {
+              
+            })
+         },
             housetype:function(h_type){
               switch(h_type){
                   case 1:
@@ -442,16 +472,12 @@
     }
 
 }
-$(function(){
-    $(".nhouse_list_nav li").eq(3).addClass("on").siblings().removeClass("on")
-})
 </script>
 
 <style scoped>
 .crumbsSearch{
     background: #f2f2f2;
 }
-
 .crumbsSearch .content {
     width: 1200px;
     height: 80px;
@@ -848,7 +874,7 @@ $(function(){
     padding: 0;
 }
 .nhouse_list_nav .rankBox {
-    float: left;
+    float: right;
 }
 .nhouse_list_nav .rankBox ul li{float: left; height: 47px; border: none; padding: 0;}
 /* .nhouse_list_nav .rankBox li:hover{border-top: none; border-bottom: none; } */

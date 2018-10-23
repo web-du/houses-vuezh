@@ -249,8 +249,8 @@
                 <div class="part clearfix">
                     <div class="part_left">
                         <ul class="nhouse_list_nav clearfix" ctm-data="list_type" style="position: relative;">
-                            <li id="" :class="{on:isallcalss}" @click="Allfun()"><span id="allUrl" href="javascript:void(0);">全部房源<span>(25)</span></span></li>
-                            <li id="" :class="{on:isclass == index}" v-for="(item,index) in nhousenav" :key="index" @click="nhousenavfun(item.id,index)">{{item.tags_name}}<span>({{item.total}})</span></li>
+                            <li id="" :class="{on:isallcalss}" @click="Allfun()"><span id="allUrl" href="javascript:void(0);">全部房源<span>({{sum}})</span></span></li>
+                            <li id="" :class="{on:isclass == index}" v-for="(item,index) in nhousenav" :key="index" @click="nhousenavfun(item.id,index,item.total)">{{item.tags_name}}<span>({{item.total}})</span></li>
                             <div class="floatr rankWrap">
                                 <div class="rankBox">
                                         <ul>
@@ -322,19 +322,15 @@
                                 </li>
                              
                             </ul>
-                            <div class="more_box">
-                                    <div class="more_ssp">
-                                        <a href="">&lt; 上一页</a>
-                                        <span class="cpb current">1</span>
-                                        <a href="">2</a>
-                                        <a href="">3</a>
-                                        <a href="">4</a>
-                                        <a href="">5</a>
-                                        <a href="">6</a>
-                                        <a href="">下一页 &gt;</a>
-                                    </div>
-                                    <div class="clear"></div>
-                            </div>
+                            <el-pagination
+                                background
+                                @size-change="handleSizeChange"
+                                @current-change="handleCurrentChange"
+                                layout="prev, pager, next,slot"
+                                :page-size="10"
+                                :current-page="val"
+                                :total="pagenum">
+                            </el-pagination>
                             <div class="clear"></div>
                         </div>
                     </div>
@@ -744,16 +740,23 @@
                recruit:[],
                nhousenav:[],
                 isclass:-1,
-               isallcalss:true
+               isallcalss:true,
+                pagenum:0,
+                cateid:"",
+                val:1,
+                sum:0
+              
             }
         },
         created(){
               
             this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:1,b_type:4}).then((response) => {      
-                
+                  
                  this.recruit=response.data.data.data
-                  console.log(this.recruit)  
-                 
+                //   console.log(this.recruit)  
+                 this.pagenum=response.data.data.total
+                 this.sum=response.data.data.total
+                 console.log(this.pagenum)
                 
              }).catch((err) => {
               
@@ -773,33 +776,62 @@
                 $(this).parent(".chioce_result ul li").remove();
             })
         },
+        // computed:{
+        //     allsum(){
+        //        var n=0;
+        //        this.nhousenav.forEach(element => {
+        //              n+=element.total
+        //        });
+        //        return n
+        //     }
+        // },
         methods:{
-           nhousenavfun(cate_id,index){
+           nhousenavfun(cate_id,index,pagesnum){
                console.log(cate_id)
                  this.isclass=index
-                this.isallcalss=false
-             this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{house_tags:cate_id,b_type:4}}).then((response) => {      
-               
+                 this.isallcalss=false
+                 this.cateid=cate_id
+                 this.val=1
+                 this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{page:1,size:10,house_tags:cate_id,b_lease:1,b_type:4}}).then((response) => {      
+                 this.pagenum=pagesnum
                  this.recruit=response.data.data.data
                     console.log(this.recruit)  
+               
                 
              }).catch((err) => {
               
             })
            },
+      
            Allfun:function(){
-             console.log(1)
-              this.isallcalss=true
-             this.isclass=-1
-            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:1,b_type:4}).then((response) => {      
-               
-                 this.recruit=response.data.data.data
+               this.val=1
+               this.isallcalss=true
+               this.isclass=-1
+               this.cateid=""
+               this.pagenum=this.sum
+               this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_lease:1,b_type:4}).then((response) => {      
+               this.recruit=response.data.data.data
                     console.log(this.recruit)  
                 
              }).catch((err) => {
               
             })
-          }
+          },
+              
+            handleSizeChange(val){
+              
+           },
+           handleCurrentChange(val) {
+                this.val=val
+            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{house_tags:this.cateid,page:this.val,size:10,b_lease:1,b_type:4}).then((response) => {      
+                
+                 this.recruit=response.data.data.data
+                  console.log(this.recruit)  
+                           
+             }).catch((err) => {
+              
+            })
+         }
         },
         
     }

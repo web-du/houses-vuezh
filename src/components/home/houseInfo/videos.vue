@@ -212,19 +212,16 @@ export default {
     // props:{
     //     nowId:Number,
     //     required:true
-    // },
+    // },   
     data() {
         return {
-            title:'',
-            text:'',
-            Url:'',
-            date:'',
-            source:'',
-            housesVideo:[],
+
+            housesVideo:[]
         };
     },
-    mounted(){
-        this.$http.post('/api/commonality/message/message_list',{id:this.nowId}).then((response) => {
+    created(){
+        console.log(this.nowId)
+         this.axios.post(process.env.API_HOST +'commonality/message/message_list',{id:this.nowId}).then((response) => {
             this.housesVideo=response.data.data
             // this.title = response.data.data[0][0].post_title
             // this.text = response.data.data[0][0].post_content

@@ -54,13 +54,13 @@ export default {
         };
     },
     mounted(){
-        this.$http.post('/api/commonality/message/message_list',{id:this.nowId}).then((response) => {
+        this.axios.post(process.env.API_HOST +'commonality/message/message_list',{id:this.nowId}).then((response) => {
             this.infoList=response.data.data
-            this.title = response.data.data[0][0].post_title
-            this.text = response.data.data[0][0].post_content
-            this.Url = response.data.data[0][0].thumbnail
-            this.date = response.data.data[0][0].create_time
-            this.source = response.data.data[0][0].post_source
+            // this.title = response.data.data[0][0].post_title
+            // this.text = response.data.data[0][0].post_content
+            // this.Url = response.data.data[0][0].thumbnail
+            // this.date = response.data.data[0][0].create_time
+            // this.source = response.data.data[0][0].post_source
             
            console.log(response)
         })

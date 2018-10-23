@@ -54,7 +54,7 @@ export default {
         };
     },
     mounted(){
-        this.$http.post('/api/commonality/message/message_list',{id:this.nowId}).then((response) => {
+         this.axios.post(process.env.API_HOST +'commonality/message/message_list',{id:this.nowId}).then((response) => {
             this.infoList=response.data.data
             this.title = response.data.data[0][0].post_title
             this.text = response.data.data[0][0].post_content
