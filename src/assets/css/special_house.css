@@ -1,0 +1,262 @@
+.next_week_new {
+    background: #f1f1f1;
+}
+
+.this_week_new .content,
+.next_week_new .content,
+.prev_week_new .content {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.this_week_new .content h3,
+.next_week_new .content h3,
+.prev_week_new .content h3 {
+    font-size: 34px;
+    text-align: center;
+}
+
+.special_house_list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.special_house_list>li {
+    flex: 1;
+    display: flex;
+    margin-top: 20px;
+    position: relative;
+}
+
+.special_house_img {
+    width: 345px;
+    position: relative;
+    cursor: pointer;
+}
+
+.price_reduction {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.price_reduction ul {
+    overflow: hidden;
+    background: #e93e0c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.price_reduction ul li {
+    width: 75px;
+    height: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    color: #e9e60c;
+}
+
+.price_reduction .title {
+    display: flex;
+    align-items: center;
+}
+
+.price_reduction .title img {
+    width: 10px;
+    height: 12px;
+}
+
+.price_reduction .triangle {
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #e93e0c transparent;
+    border-width: 25px 37.5px 0 37.5px;
+}
+
+.special_house_detail {
+    padding-top: 30px;
+    padding-left: 20px;
+    overflow: hidden;
+}
+
+.special_house_detail ul li {
+    color: #666;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.special_house_detail ul li span {
+    color: #e93e0c;
+    font-weight: bold;
+}
+
+.special_house_detail .sign_up {
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    background: #e93e0c;
+    display: block;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.scavenging {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.scavenging img {
+    width: 10px;
+    margin-right: 10px;
+}
+
+.scavenging span {
+    font-size: 14px;
+    color: #666;
+}
+
+.pastPeriod .tabbar {
+    margin-top: 60px;
+}
+
+.pastPeriod .tabbar ul {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.pastPeriod .tabbar ul li {
+    margin-right: 20px;
+    padding-bottom: 5px;
+}
+
+.pastPeriod .tabbar ul li.active {
+    background: url("../../static/images/tjf.jpg") no-repeat center bottom;
+}
+
+.pastPeriod .tabbar ul li:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.pastPeriod .tabbar ul li a {
+    padding: 0 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.pastPeriod .tabbar ul li a .border {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    z-index: 222;
+}
+
+.pastPeriod .tabbar ul li a .border .triangle {
+    display: block;
+    width: 0;
+    border-color: #e93e0c transparent;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    margin: 0 auto;
+}
+
+.pastPeriod .tabbar ul li a .border .line {
+    display: block;
+    height: 0;
+    border-bottom: 1px solid #e93e0c;
+}
+
+.pastPeriod .tabbar ul li .pastPeriod .tabbar_box {
+    margin-top: 20px;
+}
+
+.pastPeriod .tabbar_box ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pastPeriod .tabbar_box ul li {
+    width: 220px;
+    font-size: 14px;
+}
+
+.pastPeriod .tabbar_box ul li h3 {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.pastPeriod .tabbar_box ul li p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.pastPeriod .tabbar_box ul li p span {
+    color: #e93e0c;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.ewm {
+    border: 1px solid #eaeaea;
+    width: 129px;
+    height: 140px;
+    padding: 20px;
+    position: absolute;
+    left: 190px;
+    bottom: 0;
+    background: #fff;
+    z-index: 100;
+    display: none;
+}
+
+.ewm.no2 {
+    left: 408px;
+    top: 14px;
+}
+
+.ewm.no3 {
+    left: 5px;
+    top: 10px;
+}
+
+.ewm img {
+    width: 118px;
+    height: 118px;
+    display: block;
+}
+
+.ewm-cls {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    z-index: 22;
+    cursor: pointer;
+    background: url(../../static/images/btn_cls.png) no-repeat center;
+}
+
+.ewm p {
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    color: #666;
+}
+
+.ewm p a:hover {
+    color: #e93e0c;
+}
