@@ -4,12 +4,12 @@
             <li class="clearfix" v-for="(item,index) in knowledgeList" :key="index">
                 <router-link :to="{ path: '/encyclopedias/knowledgeDetail',query:{id:item.id}}">
                     <div class="img fl">
-                        <img :src="item.img">
+                        <img :src="item.image">
                     </div>
                     <div class="box fr">
                         <h2>{{item.title}}</h2>
                         <span>{{item.create_time}}</span>
-                        <p><a href="#">{{item.content}}</a></p>
+                        <p><a href="#">{{item.content | toSubstr}}</a></p>
                         <div class="describe clearfix">
                             <div class="label fl">
                                 <span>在售</span>
@@ -32,45 +32,101 @@
             </li>
         </ul>
         <!--分页-->
-        <page-list></page-list>
+        <div class="page-box" v-show="pageTotal>=10">
+            <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="pageTotal" @current-change="cliCurrent" :pager-count=7 :page-size=10 @prev-click="pre" @next-click="next">
+            </el-pagination>
+        </div>
+        
     </div>
 </template>
 
 <script>
 import pageList from "@/components/main/pageList";
 export default {
+    name: 'knowledgeList',
     components: {
         pageList
     },
     props:{
-        nowId:Number,
-        required:true
+        nowId:{
+            type:Number,
+            required:true,
+            default: ""
+        }
     },
-    name: 'knowledgeList',
-    // props:{
-    //     nowId:Number,
-    //     required:true
-    // },
     data() {
         return {
             knowledgeList:[],
+            newId:0,
+            //总页码
+            pageTotal:0,
         };
     },
+    filters:{
+        toSubstr:function(val){
+            if(val.length <= 75){
+                return val;
+            }else{
+                return val.slice(0,75) + "...[查看更多]"
+            }
+        }
+    },
+    watch:{
+        nowId(val,oldval){
+            this.newId = val;
+            this.axios.post(process.env.API_HOST+'commonality/knowledge/knowledge_list',{cate_id:this.newId}).then((response) => {
+                this.knowledgeList=response.data.data.data
+                //获取总页面
+                this.pageTotal = response.data.data.total
+                //console.log(response.data.data)
+                console.log(this.knowledgeList)
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+        immediate:true,//关键
+        deep:true
+    },
+    methods:{
+        //点击当前页
+        cliCurrent(val){
+            this.axios.post(process.env.API_HOST+'commonality/knowledge/knowledge_list',{page:val,cate_id:this.newId}).then((response) => {
+                this.knowledgeList = response.data.data.data;
+                //console.log(this.knowledgeList)
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+        //点击下一页
+        next(val){
+            this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:val,cate_id:this.newId}).then((response) => {
+                this.saleHouse = response.data.data.data;
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+        //点击上一页
+        pre(val){
+            this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:val,cate_id:this.newId}).then((response) => {
+                this.saleHouse = response.data.data.data;
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
+    },
     created(){
-        this.$http.post('/api/commonality/knowledge/knowledge_list',{cate_id:this.nowId}).then((response) => {
-            // this.title = response.data.data[0][0].title
-            // this.text = response.data.data[0][0].post_content[0]
-            // this.Url = response.data.data[0][0].thumbnail
-            // this.date = response.data.data[0][0].create_time
-            this.knowledgeList=response.data.data
-            
-           console.log(response.data.data)
-        })
     }
 };
 </script>
 
 <style scoped>
+.page-box{
+    text-align: center;
+    margin:30px 0;
+}
 .hide { display:none;}
 .fl { float:left;}
 .fr { float:right;}

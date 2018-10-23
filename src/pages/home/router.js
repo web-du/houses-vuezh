@@ -348,6 +348,13 @@ const routes = [{
         component: (resolve) => require(['@/components/home/encyclopedias/propertyKnowledge.vue'], resolve)
     },
     {
+        path: "/encyclopedias/knowledgeDetail",
+        meta: {
+            title: '房产知识详情'
+        },
+        component: (resolve) => require(['@/components/home/encyclopedias/knowledgeDetail.vue'], resolve)
+    },
+    {
         path: "/interlocution/interlocution",
         meta: {
             title: '房产问答'

@@ -3,10 +3,10 @@
         <div class="opinion">
         <p>欢迎您来到房乐士意见反馈，您可以通过业务分类选择常见问题，也可以在此直接反馈，我们会尽快给您回复。</p>
         <p><span>*</span>联系方式</p>
-        <input type="text" >
+        <input type="text" v-model="mobile">
         <p><span>*</span>问题描叙</p>
-        <textarea name=""></textarea>
-        <button type="botton">提交信息</button>
+        <textarea name="" v-model="fknr"></textarea>
+        <button type="botton" @click="toSub()">提交信息</button>
         </div>
     </div>
 </template>
@@ -14,19 +14,22 @@
 <script>
     export default{
         name:"opinionAboutUs",
-        // props:{
-        //     nowId:Number,
-        //     required:true
-        // },
+        data(){
+            return{
+                mobile:'',
+                fknr:'',
+            }
+        },
+        methods:{
+            toSub(){
+                this.axios.post(process.env.API_HOST+'commonality/From/Feedback',{mobile:this.mobile,fknr:this.fknr}).then((res) => {
+                    console.log(res);
+                }).catch((err) => {
+                    console.log(err);
+                })
+            }
+        },
         created(){
-            //console.log(this.nowId)
-            // this.$http.post('/api/commonality/region/article_list',{id:this.nowId}).then((response) => {
-            //     //this.coop = response.data.data[0][0]
-            //     //console.log(response.data.data);
-            //     //console.log(this.nowId)
-            // }).catch((err) => {
-            //     console.log(err);
-            // })
         }
     }
 </script>
