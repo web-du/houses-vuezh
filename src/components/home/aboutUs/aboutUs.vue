@@ -84,6 +84,7 @@ export default {
                this.axios.post(process.env.API_HOST+'commonality/region/article_list',{id:this.thisIndex}).then((response) => {
                     this.childCon = response.data.data;
                     //console.log(this.childCon);
+                    console.log(response.data.data);
                 }).catch((err) => {
                     console.log(err);
                 })
