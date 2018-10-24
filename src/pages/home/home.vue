@@ -41,5 +41,10 @@ export default {
 .el-pager li{
   padding: 0 20px;
 }
+/* 星星间距 */
+.el-rate__icon{
+  margin-right: 3px;
+  color: #e93e0c !important;
+}
 </style>
 

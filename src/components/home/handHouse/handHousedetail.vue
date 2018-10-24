@@ -14,124 +14,128 @@
                 </div>
             </div>
             <div class="sec-house-details w1200">
-              <div class="top-nav">
-                <ul class="clearfix">
-                    <li><a href="">房源信息</a></li>
-                    <li><a href="">小区详情</a></li>
-                    <li><a href="">税费计算器</a></li>
-                    <li><a href="">房源图片</a></li>
-                    <li><a href="">周边配套</a></li>
-                    <li><a href="">经纪人评价</a></li>
-                    <li><a href="">特价房</a></li>
-                    <li><a href="">小区成交</a></li>
-                    <li><a href="">周边租房</a></li>
-                    <li><a href="">周边二手房</a></li>
-                    <li><a href="">周边商铺</a></li>
-                </ul>
-              </div>
-              <div class="house-details clearfix">
-                <div class="img-box fl">
-                     <div class="xqcase_box">
-                       <div class="swiper_top">
-                            <ul>
-                                <li v-for="(item,index) in getSecondHouseDetail.b_imgs" :key="index">
-                                    <img :src="item" >
-                                </li>
-                            </ul>
-                            <span class="tprev">
-                                <img src="@/assets/images/store_prev.png" alt="">
-                             </span>
-                             <span class="tnext">
-                                 <img src="@/assets/images/store_next.png" alt="">
-                             </span>
-                        </div>
-                        <div class="swiper_bot">
-                              <span class="bprev">
-                                <img src="@/assets/images/store_sprev.png" alt="">
-                             </span>
-                             <span class="bnext">
-                                <img src="@/assets/images/store_snext.png" alt="">
-                             </span>
-                           <div class="bot_view">
-                               <ul>
+                <div class="top-nav">
+                    <ul class="clearfix">
+                        <li><a href="">房源信息</a></li>
+                        <li><a href="">小区详情</a></li>
+                        <li><a href="">税费计算器</a></li>
+                        <li><a href="">房源图片</a></li>
+                        <li><a href="">周边配套</a></li>
+                        <li><a href="">经纪人评价</a></li>
+                        <li><a href="">特价房</a></li>
+                        <li><a href="">小区成交</a></li>
+                        <li><a href="">周边租房</a></li>
+                        <li><a href="">周边二手房</a></li>
+                        <li><a href="">周边商铺</a></li>
+                    </ul>
+                </div>
+                <div class="house-details clearfix">
+                    <div class="img-box fl">
+                        <div class="xqcase_box">
+                        <div class="swiper_top">
+                                <ul>
                                     <li v-for="(item,index) in getSecondHouseDetail.b_imgs" :key="index">
                                         <img :src="item" >
                                     </li>
-                               </ul>
+                                </ul>
+                                <span class="tprev">
+                                    <img src="@/assets/images/store_prev.png" alt="">
+                                </span>
+                                <span class="tnext">
+                                    <img src="@/assets/images/store_next.png" alt="">
+                                </span>
+                            </div>
+                            <div class="swiper_bot">
+                                <span class="bprev">
+                                    <img src="@/assets/images/store_sprev.png" alt="">
+                                </span>
+                                <span class="bnext">
+                                    <img src="@/assets/images/store_snext.png" alt="">
+                                </span>
+                            <div class="bot_view">
+                                <ul>
+                                        <li v-for="(item,index) in getSecondHouseDetail.b_imgs" :key="index">
+                                            <img :src="item" >
+                                        </li>
+                                </ul>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="con-box fr">
+                    <div class="op clearfix">
+                        <h2 class="fl">{{getSecondHouseDetail.house_title}}</h2>
+                        <div class="collect fr clearfix">
+                            <img src="@/assets/images/Dw-xin.png" class="xin fl">
+                            <img src="@/assets/images/Dw-feng.png" class="feng fr">
+                        </div>
+                    </div>
+                    <p class="time">更新于{{getSecondHouseDetail.create_time}}</p>
+                    <div class="money clearfix">
+                        <p class="fl"><em>16501</em>万</p>
+                        <div class="fl">首付预算约115.6万&nbsp;&nbsp;&nbsp;&nbsp;月供9,765元（仅供参考）
+                            <div class="problem">
+                                <em>?</em>
+                                <div class="shoufu_tan">
+                                    <h5>首付预算=净首付+税费+其他费用</h5>
+                                    <p>净首付：等于房屋成交价格减去银行贷款金额，默认按照最多可贷款金额计算。<br>税费：一般需要缴纳契税、个税、增值税及附加、综合地价款、土地出让金等。<br>其他：居间服务费，具体数额可咨询房屋经纪人。</p>
+                                </div>
                             </div>
                         </div>
-                   </div>
+                    </div>
+                    <div class="mj-list">
+                        <ul class="clearfix">
+                        <li>
+                            <h2>{{HouseType}}</h2>
+                            <p>{{getSecondHouseDetail.b_buildfloor | Buildfloor}} . 共32层</p>
+                        </li>
+                        <li>
+                            <h2>{{getSecondHouseDetail.b_acreage}}m2</h2>
+                            <p>南北</p>
+                        </li>
+                        <li>
+                            <h2>{{getSecondHouseDetail.house_price}}元/m2</h2>
+                            <p>精装修</p>
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="tj-list">
+                        <ul class="clearfix">
+                        <li>
+                            <span>楼盘位置：</span><span><em>云湖尚景</em>{{getSecondHouseDetail.house_address}}</span>
+                        </li>
+                        <li>
+                            <span>楼盘区域：</span>
+                            <span>江岸区百步亭</span>
+                        </li>
+                        <li>
+                            <span>周边学校：</span>
+                            <span>{{getSecondHouseDetail.near_school}}</span>
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="ag clearfix" v-for="(item,index) in getSecondHouseDetail.mediums" :key="index">
+                        <div class="img fl">
+                        <div class="box">
+                            <img :src="item.avatar" >
+                            <p>房乐士</p>
+                        </div>
+                        <i></i>
+                        </div>
+                        <div class="name fl">
+                        <p>{{getSecondHouseDetail.mediums[0].user_realname}}</p>
+                        <span>我是该房屋实勘人，清楚该房屋状况</span>
+                        <h2 class="clearfix">
+                            <img src="@/assets/images/Dw-telphone.png" class="fl" />
+                            <span>{{getSecondHouseDetail.mediums[0].mobile}}</span>
+                        </h2>
+                        </div>
+                        <div class="fl to-consult" :style="note">
+                        咨询顾问
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div class="con-box fr">
-                  <div class="op clearfix">
-                    <h2 class="fl">{{getSecondHouseDetail.house_title}}</h2>
-                    <div class="collect fr clearfix">
-                      <img src="@/assets/images/Dw-xin.png" class="xin fl">
-                      <img src="@/assets/images/Dw-feng.png" class="feng fr">
-                    </div>
-                  </div>
-                  <p class="time">更新于{{getSecondHouseDetail.create_time}}</p>
-                  <div class="money clearfix">
-                    <p class="fl"><em>16501</em>万</p>
-                    <p class="fl">首付预算约115.6万&nbsp;&nbsp;&nbsp;&nbsp;月供9,765元（仅供参考）<span class="problem">?</span></p>
-                    <div class="shoufu_tan">
-                        <h5>首付预算=净首付+税费+其他费用</h5>
-                        <p>净首付：等于房屋成交价格减去银行贷款金额，默认按照最多可贷款金额计算。<br>税费：一般需要缴纳契税、个税、增值税及附加、综合地价款、土地出让金等。<br>其他：居间服务费，具体数额可咨询房屋经纪人。</p>
-                    </div>
-                  </div>
-                  <div class="mj-list">
-                    <ul class="clearfix">
-                      <li>
-                        <h2>{{HouseType}}</h2>
-                        <p>{{getSecondHouseDetail.b_buildfloor | Buildfloor}} . 共32层</p>
-                      </li>
-                      <li>
-                        <h2>{{getSecondHouseDetail.b_acreage}}m2</h2>
-                        <p>南北</p>
-                      </li>
-                      <li>
-                        <h2>{{getSecondHouseDetail.house_price}}元/m2</h2>
-                        <p>精装修</p>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="tj-list">
-                    <ul class="clearfix">
-                      <li>
-                        <span>楼盘位置：</span><span><em>云湖尚景</em>{{getSecondHouseDetail.house_address}}</span>
-                      </li>
-                      <li>
-                        <span>楼盘区域：</span>
-                        <span>江岸区百步亭</span>
-                      </li>
-                      <li>
-                        <span>周边学校：</span>
-                        <span>{{getSecondHouseDetail.near_school}}</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ag clearfix" v-for="(item,index) in getSecondHouseDetail.mediums" :key="index">
-                    <div class="img fl">
-                      <div class="box">
-                        <img :src="item.avatar" >
-                        <p>房乐士</p>
-                      </div>
-                      <i></i>
-                    </div>
-                    <div class="name fl">
-                      <p>{{getSecondHouseDetail.mediums[0].user_realname}}</p>
-                      <span>我是该房屋实勘人，清楚该房屋状况</span>
-                      <h2 class="clearfix">
-                        <img src="@/assets/images/Dw-telphone.png" class="fl" />
-                        <span>{{getSecondHouseDetail.mediums[0].mobile}}</span>
-                      </h2>
-                    </div>
-                    <div class="fl to-consult" :style="note">
-                      咨询顾问
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="bottomAd this">
             	<a href="#">
@@ -143,608 +147,613 @@
                 <div class="part_center">
                     <div class="part clearfix">
                         <div class="part_left">
-                          <div class="house-infor">
-                            <h2>房源信息</h2>
-                            <table>
-                              <tr>
-                                <td>基本属性</td>
-                                <td>
-                                  <ul class="clearfix">
-                                    <li class="fl">
-                                      <span>建筑年代</span>
-                                      <span>2005年</span>
-                                    </li>
-                                    <li class="fl">
-                                      <span>产权性质</span>
-                                      <span>商品房</span>
-                                    </li>
-                                    <li class="fl">
-                                      <span>有无电梯</span>
-                                      <span>{{Isdis}}</span>
-                                    </li>
-                                    <li class="fl">
-                                      <span>挂牌时间</span>
-                                      <span>2018-04-25</span>
-                                    </li>
-                                    <li class="fl">
-                                      <span>建筑结构</span>
-                                      <span>平层</span>
-                                    </li>
-                                    <li class="fl">
-                                      <span>住宅类型</span>
-                                      <span>{{Operast}}</span>
-                                    </li>
-                                    <li class="fl">
-                                      <span>建筑类别</span>
-                                      <span>楼板</span>
-                                    </li>
-                                    <li class="fl">
-                                      <span>房源编号</span>
-                                      <span>{{getSecondHouseDetail.house_number}}</span>
-                                    </li>
-                                  </ul>
-                                </td>
-                              </tr>
-                            </table>
-                            <h2>房源特色</h2>
-                            <table>
-                              <tr>
-                                <td>核心卖点：</td>
-                                <td>
-                                  <ul>
-                                    <li>1、碧桂园海昌天澜三期属于成熟小区，可购房入户。</li>
-                                    <li>2、卧室私密性好，温馨，客厅宽敞，通风，得房率很高。</li>
-                                    <li>3、楼层好，视野好，采光好。</li>
-                                    <li>4、看房方便，房东诚心出售</li>
-                                    <li>5、周边生活配套设施</li>
-                                  </ul>
-                                  <p class="sm">如果这套房子不合您意可以点击我的头像进入我的店铺有更多合适您的房源或者一定能找到能符合您要求的房源</p>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>业主心态</td>
-                                <td><p>房东现在急用钱，需要钱周转，所以这套大房子，以低于市场价出售，现代城再也找不到这便宜的房子啦。有钥匙，看房子很方便。</p></td>
-                              </tr>
-                              <tr>
-                                <td>小区配套</td>
-                                <td>
-                                  <p>交通：距离2号线地铁、车站3分钟等 商业：银行、健身房等 教育：学校（小学、中学）等 医疗：附近医院等 内部环境：环境整洁程度等 车位情况：有无车位、车位多少等 安保措施：保安情况等 其他：比如居民素质、建筑材质等</p>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>服务介绍</td>
-                                <td><p>本人从事房地产多年，公司有大量好房源，欢迎进入我的店铺查看，欢迎随时电话咨询，相信我的专业，为您置业安家保驾护航。</p></td>
-                              </tr>
-                            </table>
-                          </div>
-                          <div class="sec-calculator">
-                            <div class="nav clearfix">
-                              <ul class="fl clearfix">
-                                <li class="fl now">税费计算器</li>
-                                <li class="fl" >更多计算器</li>
-                              </ul>
-                              <p class="fr">*备注：税费查询结果仅供参考</p>
-                            </div>
-                            <div class="con clearfix">
-                              <div class="fdjs fl">
-                                <div class="logo clearfix">
-                                  <div class="img fl">
-                                    <img src="@/assets/images/Dw-calculator.png" >
-                                  </div>
-                                  <div class="name fl">
-                                    <h2>房贷计算器</h2>
-                                    <p>选择基本情况，帮您快速计算房贷</p>
-                                  </div>
-                                </div>
-                                <table class="cal" style="border-collapse:separate; border-spacing:0px 10px;">
-                                  <tr>
-                                    <td>房屋：</td>
-                                    <td class="house-type clearfix">
-                                      <span class="type"><i></i>新房</span>
-                                      <span class="type"><i class="on"></i>二手房</span>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>房屋面积：</td>
-                                    <td class="mj">
-                                      <input type="text">
-                                      <span>m2</span>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>房屋单价：</td>
-                                    <td class="mj">
-                                      <input type="text">
-                                      <span>元/m2</span>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>首次购买：</td>
-                                    <td class="house-type clearfix">
-                                      <span class="type"><i></i>是</span>
-                                      <span class="type"><i class="on"></i>否</span>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>有无电梯：</td>
-                                    <td class="house-type clearfix">
-                                      <span class="type"><i></i>有</span>
-                                      <span class="type"><i class="on"></i>无</span>
-                                    </td>
-                                  </tr>
+                            <div class="house-infor">
+                                <h2>房源信息</h2>
+                                <table>
+                                    <tr>
+                                        <td>基本属性</td>
+                                        <td>
+                                            <ul class="clearfix">
+                                                <li class="fl">
+                                                    <span>建筑年代</span>
+                                                    <span>2005年</span>
+                                                </li>
+                                                <li class="fl">
+                                                    <span>产权性质</span>
+                                                    <span>商品房</span>
+                                                </li>
+                                                <li class="fl">
+                                                    <span>有无电梯</span>
+                                                    <span>{{Isdis}}</span>
+                                                </li>
+                                                <li class="fl">
+                                                    <span>挂牌时间</span>
+                                                    <span>2018-04-25</span>
+                                                </li>
+                                                <li class="fl">
+                                                    <span>建筑结构</span>
+                                                    <span>平层</span>
+                                                </li>
+                                                <li class="fl">
+                                                    <span>住宅类型</span>
+                                                    <span>{{Operast}}</span>
+                                                </li>
+                                                <li class="fl">
+                                                    <span>建筑类别</span>
+                                                    <span>楼板</span>
+                                                </li>
+                                                <li class="fl">
+                                                    <span>房源编号</span>
+                                                    <span>{{getSecondHouseDetail.house_number}}</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
                                 </table>
-                                <span class="begin">开始计算</span>
-                              </div>
-                              <div class="jsjg fr">
-                                <h2>计算结果</h2>
-                                <ul>
-                                  <li>
-                                    <span>房贷总额：</span><span><em>1100000001</em>元</span>
-                                  </li>
-                                  <li>
-                                    <span>工本费：</span><span><em>95</em>元</span>
-                                  </li>
-                                  <li>
-                                    <span>契税：</span><span><em>8</em>元</span>
-                                  </li>
-                                  <li>
-                                    <span>权属登记税：</span><span><em>95</em>元</span>
-                                  </li>
-                                  <li>
-                                    <span>维修基金：</span><span><em>8</em>万</span>
-                                  </li>
-                                  <li>
-                                    <span>合计：</span><span><em>17248</em>元</span>
-                                  </li>
-                                </ul>
-                              </div>
+                                <h2>房源特色</h2>
+                                <table>
+                                    <tr>
+                                        <td>核心卖点：</td>
+                                        <td>
+                                            <ul>
+                                                <li>1、碧桂园海昌天澜三期属于成熟小区，可购房入户。</li>
+                                                <li>2、卧室私密性好，温馨，客厅宽敞，通风，得房率很高。</li>
+                                                <li>3、楼层好，视野好，采光好。</li>
+                                                <li>4、看房方便，房东诚心出售</li>
+                                                <li>5、周边生活配套设施</li>
+                                            </ul>
+                                            <p class="sm">如果这套房子不合您意可以点击我的头像进入我的店铺有更多合适您的房源或者一定能找到能符合您要求的房源</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>业主心态</td>
+                                        <td>
+                                            <p>房东现在急用钱，需要钱周转，所以这套大房子，以低于市场价出售，现代城再也找不到这便宜的房子啦。有钥匙，看房子很方便。</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>小区配套</td>
+                                        <td>
+                                            <p>交通：距离2号线地铁、车站3分钟等 商业：银行、健身房等 教育：学校（小学、中学）等 医疗：附近医院等 内部环境：环境整洁程度等 车位情况：有无车位、车位多少等 安保措施：保安情况等 其他：比如居民素质、建筑材质等</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>服务介绍</td>
+                                        <td>
+                                            <p>本人从事房地产多年，公司有大量好房源，欢迎进入我的店铺查看，欢迎随时电话咨询，相信我的专业，为您置业安家保驾护航。</p>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                          </div>
-                          <div class="house-infor">
-                            <h2>房源图片</h2>
-                            <ul class="clearfix">
-                              <li>
-                                <img src="@/assets/images/Dw-img27.jpg" >
-                                <span class="sm">效果图</span>
-                              </li>
-                              <li>
-                                <img src="@/assets/images/Dw-img28.jpg" >
-                                <span class="sm">室内</span>
-                              </li>
-                              <li>
-                                <img src="@/assets/images/Dw-img29.jpg" >
-                                <span class="sm">户型图</span>
-                              </li>
-                              <li>
-                                <img src="@/assets/images/Dw-img30.jpg" >
-                                <span class="sm">实景图</span>
-                              </li>
-                              <li>
-                                <img src="@/assets/images/Dw-img31.jpg" >
-                                <span class="sm">实景图</span>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="house-infor">
-                            <h2>小区信息</h2>
-                            <div class="quarters clearfix">
-                              <div class="img fl">
-                                <img src="@/assets/images/Dw-img21.jpg" >
-                              </div>
-                              <div class="name fl">
-                                <h3><span>云湖尚景</span><i>(参考均价<em>20105</em>元/m2)</i></h3>
-                                <ul class="clearfix">
-                                  <li class="clearfix" ><span>同比去年</span><p class="up"><em>20.05</em>%</p></li>
-                                  <li class="clearfix" ><span>环比上月</span><p class="down"><em>20.05</em></p>%</li>
-                                  <li class="clearfix" ><span>物业类型</span><p>住宅</p></li>
-                                  <li class="clearfix" ><span>物业费用</span><p>1.5元/m2</p></li>
-                                  <li class="clearfix" ><span>建筑类型</span><p>板塔结合</p></li>
-                                  <li class="clearfix" ><span>建筑年代</span><p>2008年</p></li>
-                                  <li class="clearfix" ><span>当前挂牌</span><p><i>24套在售房源</i><i>7套出租房源</i></p></li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="echart" id="echart"></div>
-                          </div>
-                          <div class="house-infor">
-                            <h2>位置及周边 街景地图
-                               <a href="">驾车</a>
-                            </h2>
-                            <div id="map">
-                               <img src="@/assets/images/store_map.jpg" alt="">
-                               <div class="map_nav">
-                                   <div class="map_nav_1">
-                                       <ul>
-                                           <li class="on">楼盘</li>
-                                           <li>交通</li>
-                                           <li>商业</li>
-                                           <li>学校</li>
-                                           <li>医院</li>
-                                           <li>其他</li>
-                                       </ul>
-                                   </div>
-                                   <div class="map_nav_2">
-                                       <ul>
-                                           <li>
-                                              <div class="number">
-                                                  1
-                                              </div>
-                                              <div class="place">
-                                                  <p>派米雷佘山智地</p>
-                                                  <i>待售</i>
-                                              </div>
-                                              <div class="distance">
-                                                  1590米
-                                              </div>
-                                           </li>
-                                          <li>
-                                              <div class="number">
-                                                  2
-                                              </div>
-                                              <div class="place">
-                                                  <p>派米雷佘山智地</p>
-                                                  <i>待售</i>
-                                              </div>
-                                              <div class="distance">
-                                                  1590米
-                                              </div>
-                                           </li>
-                                           <li>
-                                              <div class="number">
-                                                  3
-                                              </div>
-                                              <div class="place">
-                                                  <p>派米雷佘山智地</p>
-                                                  <i>待售</i>
-                                              </div>
-                                              <div class="distance">
-                                                  1590米
-                                              </div>
-                                           </li>
-                                           <li>
-                                              <div class="number">
-                                                  4
-                                              </div>
-                                              <div class="place">
-                                                  <p>派米雷佘山智地</p>
-                                                  <i>待售</i>
-                                              </div>
-                                              <div class="distance">
-                                                  1590米
-                                              </div>
-                                           </li>
-                                           <li>
-                                              <div class="number">
-                                                  5
-                                              </div>
-                                              <div class="place">
-                                                  <p>派米雷佘山智地</p>
-                                                  <i>待售</i>
-                                              </div>
-                                              <div class="distance">
-                                                  1590米
-                                              </div>
-                                           </li>
-                                           <li>
-                                              <div class="number">
-                                                  6
-                                              </div>
-                                              <div class="place">
-                                                  <p>派米雷佘山智地</p>
-                                                  <i>待售</i>
-                                              </div>
-                                              <div class="distance">
-                                                  1590米
-                                              </div>
-                                           </li>
-                                       </ul>
-                                   </div>
-
-                                  <div class="btn">
-
-                                  </div>
-                               </div>
-
-                           </div>
-                          </div>
-                          <div class="house-infor">
-                            <h2 class="clearfix"><span class="fl">云湖尚景成交记录</span><a href="#" class="fr">更多</a></h2>
-                            <div class="dh clearfix">
-                              <span class="infor">房源信息</span>
-                              <span class="mj">面积</span>
-                              <span class="qytime">签约时间</span>
-                              <span class="cjprice">成交价</span>
-                              <span class="cjf">成交均价</span>
-                              <span class="sjly">数据来源</span>
-                            </div>
-                            <ul class="list">
-                                <li class="clearfix" v-for="(item,index) in getSecondHouseDetail.tradelog" :key="index">
-                                    <div class="img fl">
-                                    <img src="@/assets/images/Dw-img21.jpg" >
-                                    </div>
-                                    <div class="text fl">
-                                    <h4>{{item.b_huxing}}</h4>
-                                    <p>{{item.b_buildfloor | Buildfloor}}(共{{item.b_floor}})</p>
-                                    <p>{{item.b_orientation}}</p>
-                                    </div>
-                                    <span class="mj fl">{{item.house_map}}</span>
-                                    <span class="fl qytime">{{item.qian_time}}</span>
-                                    <span class="cjprice fl"><em>{{item.deal_price}}</em>元/m2</span>
-                                    <span class="cjf fl"><em>{{item.deal_avgprice}}</em>元/m2</span>
-                                    <span class="sjly fl">{{item.from}}</span>
-                                </li>
-                            </ul>
-                            <p class="seemore"><a href="#">查看全部成交记录</a></p>
-                          </div>
-                          <div class="house-infor">
-                            <h2 class="clearfix"><span class="fl">置业顾问评价</span><a class="fr">查看更多</a></h2>
-                            <div class="comment_list">
-                                   <div class="comment">
-                                        <p>
-                                          <span>好评率<em>88%</em></span>
-                                          <span>真实度<em>4.5</em></span>
-                                          <span>满意度<em>4.5</em></span>
-                                          <span>专业度<em>4.5</em></span>
-                                        </p>
-                                        <div class="comment_top clearfix">
-                                           <div class="img_logo fl">
-                                            <img src="@/assets/images/jjrdp1.png" >
-                                            <p>王文军</p>
-                                          </div>
-                                           <div class="conts scenic_score fr">
-                                              <div class="evaluate_img clearfix">
-                                                  <div class="fl names">请您对他的服务进项点评</div>
-                                                  <ul class="fl hp_img clearfix">
-                                                      <li class="li1 active">好评</li>
-                                                      <li class="li2">中评</li>
-                                                      <li class="li3">差评</li>
-                                                  </ul>
-                                              </div>
-                                              <div class="star_list clearfix">
-                                                  <div class="evaluate fl clearfix">
-                                                      <div class="pf_name fl">房屋信息真实度</div>
-                                                      <div class="starRating fl">
-                                                          <p class="photo">
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                                  <div class="evaluate fl clearfix">
-                                                      <div class="pf_name fl">服务态度满意度</div>
-                                                      <div class="starRating fl">
-                                                          <p class="photo">
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                                  <div class="evaluate fl clearfix">
-                                                      <div class="pf_name fl">业务水平专业度</div>
-                                                      <div class="starRating fl">
-                                                          <p class="photo">
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                              <span><i class="high"></i><i class="nohigh"></i></span>
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="pj_text">
-                                                  <div class="text_area">
-                                                      <textarea name="" placeholder="说说置业顾问在服务过程中的表现，对您有哪些帮助？"></textarea>
-                                                      <p>0/30</p>
-                                                  </div>
-                                              </div>
-                                              <div class="bot_btn">
-                                                  <button class="submit_btn fl">提交评论</button>
-                                              </div>
-                                           </div>
+                            <div class="sec-calculator">
+                                <div class="nav clearfix">
+                                    <ul class="fl clearfix">
+                                        <li class="fl now">税费计算器</li>
+                                        <li class="fl" >更多计算器</li>
+                                    </ul>
+                                    <p class="fr">*备注：税费查询结果仅供参考</p>
+                                </div>
+                                <div class="con clearfix">
+                                    <div class="fdjs fl">
+                                        <div class="logo clearfix">
+                                            <div class="img fl">
+                                                <img src="@/assets/images/Dw-calculator.png" >
+                                            </div>
+                                            <div class="name fl">
+                                                <h2>房贷计算器</h2>
+                                                <p>选择基本情况，帮您快速计算房贷</p>
+                                            </div>
                                         </div>
-                                   </div>
-                                 </div>
-                          </div>
-                          <div class="store_ad">
-                              <a href=""><img src="@/assets/images/store_ad.jpg" alt=""></a>
-                          </div>
-                          <div class="store_ad">
-                              <a href=""><img src="@/assets/images/store_ad.jpg" alt=""></a>
-                          </div>
-                          <div class="store_ad">
-                              <a href=""><img src="@/assets/images/store_ad.jpg" alt=""></a>
-                          </div>
-                          <div class="house-infor">
-                            <h2 class="clearfix"><span class="fl">您感兴趣的新房</span><a class="fr">更多</a></h2>
-                            <ul class="special_house_list clearfix">
-                                  <li v-for="(item,index) in getSecondHouseDetail.new_house" :key="index">
-                                      <div class="special_house_img">
-                                          <a href="" class="img"><img :src="item.house_thumb" width="100%"></a>
-                                          <div class="price_reduction">
-                                              <ul>
-                                                  <li class="title">
-                                                      <span>降</span>
-                                                      <img src="@/assets/images/price_reduction.png" width="100%">
-                                                  </li>
-                                                  <li>
-                                                      <span class="range">{{item.b_discount}}</span>
-                                                  </li>
-                                              </ul>
-                                              <span class="triangle"></span>
-                                          </div>
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">{{item.b_name}}</a>
-                                          <ul>
-                                              <li>市场价: {{item.b_market_price}} 元/m2</li>
-                                              <li>活动价:&nbsp;<span>{{item.b_activity_price}}</span>&nbsp; 元/m2</li>
-                                              <li>建面:{{item.b_acreage}} ㎡</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div class="house-infor">
-                            <h2 class="clearfix"><span class="fl">同价位二手房</span><a class="fr">更多</a></h2>
-                            <ul class="special_house_list clearfix">
-                                <li v-for="(item,index) in getSecondHouseDetail.price_house" :key="index">
-                                    <div class="special_house_img">
-                                        <a href="" class="img">
-                                            <img :src="item.house_thumb" width="100%">
-                                        </a>
+                                        <table class="cal" style="border-collapse:separate; border-spacing:0px 10px;">
+                                            <tr>
+                                                <td>房屋：</td>
+                                                <td class="house-type clearfix">
+                                                    <span class="type"><i></i>新房</span>
+                                                    <span class="type"><i class="on"></i>二手房</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>房屋面积：</td>
+                                                <td class="mj">
+                                                    <input type="text">
+                                                    <span>m2</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>房屋单价：</td>
+                                                <td class="mj">
+                                                    <input type="text">
+                                                    <span>元/m2</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>首次购买：</td>
+                                                <td class="house-type clearfix">
+                                                    <span class="type"><i></i>是</span>
+                                                    <span class="type"><i class="on"></i>否</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>有无电梯：</td>
+                                                <td class="house-type clearfix">
+                                                    <span class="type"><i></i>有</span>
+                                                    <span class="type"><i class="on"></i>无</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <span class="begin">开始计算</span>
                                     </div>
-                                    <div class="special_house_detail">
-                                        <a href="" class="title">{{item.house_title}}</a>
-                                        <ul class="clearfix">
-                                            <li class="fl">单价: {{item.b_price}}元/m2</li>
-                                            <li class="fr">建面: {{item.b_acreage}} ㎡</li>
+                                    <div class="jsjg fr">
+                                        <h2>计算结果</h2>
+                                        <ul>
+                                            <li>
+                                                <span>房贷总额：</span><span><em>1100000001</em>元</span>
+                                            </li>
+                                            <li>
+                                                <span>工本费：</span><span><em>95</em>元</span>
+                                            </li>
+                                            <li>
+                                                <span>契税：</span><span><em>8</em>元</span>
+                                            </li>
+                                            <li>
+                                                <span>权属登记税：</span><span><em>95</em>元</span>
+                                            </li>
+                                            <li>
+                                                <span>维修基金：</span><span><em>8</em>万</span>
+                                            </li>
+                                            <li>
+                                                <span>合计：</span><span><em>17248</em>元</span>
+                                            </li>
                                         </ul>
                                     </div>
-                                </li>
-                            </ul>
-                          </div>
+                                </div>
+                            </div>
+                            <div class="house-infor">
+                                <h2>房源图片</h2>
+                                <ul class="clearfix">
+                                    <li>
+                                        <img src="@/assets/images/Dw-img27.jpg" >
+                                        <span class="sm">效果图</span>
+                                    </li>
+                                    <li>
+                                        <img src="@/assets/images/Dw-img28.jpg" >
+                                        <span class="sm">室内</span>
+                                    </li>
+                                    <li>
+                                        <img src="@/assets/images/Dw-img29.jpg" >
+                                        <span class="sm">户型图</span>
+                                    </li>
+                                    <li>
+                                        <img src="@/assets/images/Dw-img30.jpg" >
+                                        <span class="sm">实景图</span>
+                                    </li>
+                                    <li>
+                                        <img src="@/assets/images/Dw-img31.jpg" >
+                                        <span class="sm">实景图</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="house-infor">
+                                <h2>小区信息</h2>
+                                <div class="quarters clearfix">
+                                    <div class="img fl">
+                                        <img src="@/assets/images/Dw-img21.jpg" >
+                                    </div>
+                                    <div class="name fl">
+                                        <h3><span>云湖尚景</span><i>(参考均价<em>20105</em>元/m2)</i></h3>
+                                        <ul class="clearfix">
+                                        <li class="clearfix" ><span>同比去年</span><p class="up"><em>20.05</em>%</p></li>
+                                        <li class="clearfix" ><span>环比上月</span><p class="down"><em>20.05</em></p>%</li>
+                                        <li class="clearfix" ><span>物业类型</span><p>住宅</p></li>
+                                        <li class="clearfix" ><span>物业费用</span><p>1.5元/m2</p></li>
+                                        <li class="clearfix" ><span>建筑类型</span><p>板塔结合</p></li>
+                                        <li class="clearfix" ><span>建筑年代</span><p>2008年</p></li>
+                                        <li class="clearfix" ><span>当前挂牌</span><p><i>24套在售房源</i><i>7套出租房源</i></p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="echart" id="echart"></div>
+                            </div>
+                            <div class="house-infor">
+                                <h2>位置及周边 街景地图
+                                    <a href="">驾车</a>
+                                </h2>
+                                <div id="map">
+                                    <img src="@/assets/images/store_map.jpg" alt="">
+                                    <div class="map_nav">
+                                        <div class="map_nav_1">
+                                            <ul>
+                                                <li class="on">楼盘</li>
+                                                <li>交通</li>
+                                                <li>商业</li>
+                                                <li>学校</li>
+                                                <li>医院</li>
+                                                <li>其他</li>
+                                            </ul>
+                                        </div>
+                                        <div class="map_nav_2">
+                                            <ul>
+                                                <li>
+                                                    <div class="number">
+                                                        1
+                                                    </div>
+                                                    <div class="place">
+                                                        <p>派米雷佘山智地</p>
+                                                        <i>待售</i>
+                                                    </div>
+                                                    <div class="distance">
+                                                        1590米
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="number">
+                                                        2
+                                                    </div>
+                                                    <div class="place">
+                                                        <p>派米雷佘山智地</p>
+                                                        <i>待售</i>
+                                                    </div>
+                                                    <div class="distance">
+                                                        1590米
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="number">
+                                                        3
+                                                    </div>
+                                                    <div class="place">
+                                                        <p>派米雷佘山智地</p>
+                                                        <i>待售</i>
+                                                    </div>
+                                                    <div class="distance">
+                                                        1590米
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="number">
+                                                        4
+                                                    </div>
+                                                    <div class="place">
+                                                        <p>派米雷佘山智地</p>
+                                                        <i>待售</i>
+                                                    </div>
+                                                    <div class="distance">
+                                                        1590米
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="number">
+                                                        5
+                                                    </div>
+                                                    <div class="place">
+                                                        <p>派米雷佘山智地</p>
+                                                        <i>待售</i>
+                                                    </div>
+                                                    <div class="distance">
+                                                        1590米
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="number">
+                                                        6
+                                                    </div>
+                                                    <div class="place">
+                                                        <p>派米雷佘山智地</p>
+                                                        <i>待售</i>
+                                                    </div>
+                                                    <div class="distance">
+                                                        1590米
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="btn">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="house-infor">
+                                <h2 class="clearfix"><span class="fl">云湖尚景成交记录</span><a href="#" class="fr">更多</a></h2>
+                                <div class="dh clearfix">
+                                    <span class="infor">房源信息</span>
+                                    <span class="mj">面积</span>
+                                    <span class="qytime">签约时间</span>
+                                    <span class="cjprice">成交价</span>
+                                    <span class="cjf">成交均价</span>
+                                    <span class="sjly">数据来源</span>
+                                </div>
+                                <ul class="list">
+                                    <li class="clearfix" v-for="(item,index) in getSecondHouseDetail.tradelog" :key="index">
+                                        <div class="img fl">
+                                            <img src="@/assets/images/Dw-img21.jpg" >
+                                        </div>
+                                        <div class="text fl">
+                                            <h4>{{item.b_huxing}}</h4>
+                                            <p>{{item.b_buildfloor | Buildfloor}}(共{{item.b_floor}})</p>
+                                            <p>{{item.b_orientation}}</p>
+                                        </div>
+                                        <span class="mj fl">{{item.house_map}}</span>
+                                        <span class="fl qytime">{{item.qian_time}}</span>
+                                        <span class="cjprice fl"><em>{{item.deal_price}}</em>元/m2</span>
+                                        <span class="cjf fl"><em>{{item.deal_avgprice}}</em>元/m2</span>
+                                        <span class="sjly fl">{{item.from}}</span>
+                                    </li>
+                                </ul>
+                                <p class="seemore"><a href="#">查看全部成交记录</a></p>
+                            </div>
+                            <div class="house-infor">
+                                <h2 class="clearfix"><span class="fl">置业顾问评价</span><a class="fr">查看更多</a></h2>
+                                <div class="comment_list">
+                                    <div class="comment">
+                                        <p>
+                                            <span>好评率<em>88%</em></span>
+                                            <span>真实度<em>4.5</em></span>
+                                            <span>满意度<em>4.5</em></span>
+                                            <span>专业度<em>4.5</em></span>
+                                        </p>
+                                        <div class="comment_top clearfix">
+                                            <div class="img_logo fl">
+                                                <img src="@/assets/images/jjrdp1.png" >
+                                                <p>王文军</p>
+                                            </div>
+                                            <div class="conts scenic_score fr">
+                                                <div class="evaluate_img clearfix">
+                                                    <div class="fl names">请您对他的服务进项点评</div>
+                                                    <ul class="fl hp_img clearfix">
+                                                        <li class="li1" :class="{active : nowIndex == 1}" @click="hPin()">
+                                                            
+                                                            <img src="@/assets/images/jjrdp10.png" v-if="nowIndex == 1">
+                                                            <img src="@/assets/images/jjrdp15.png" v-else>
+                                                            <em>好评</em>
+                                                        </li>
+                                                        <li class="li2" :class="{active : nowIndex == 2}" @click="zPin()">
+                                                            <img src="@/assets/images/jjrdp11.png" v-if="nowIndex == 2">
+                                                            <img src="@/assets/images/jjrdp16.png" v-else>
+                                                            
+                                                            <em>中评</em>
+                                                        </li>
+                                                        <li class="li3" :class="{active : nowIndex == 3}" @click="cPin()">
+                                                            <img src="@/assets/images/jjrdp12.png" v-if="nowIndex == 3">
+                                                            <img src="@/assets/images/jjrdp17.png" v-else>
+                                                            
+                                                            <em>差评</em>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="star_list clearfix">
+                                                    <div class="evaluate fl clearfix">
+                                                        <div class="pf_name fl">房屋信息真实度</div>
+                                                        <div class="starRating fl">
+                                                            <div class="photo clearfix">
+                                                                <el-rate v-model="realValue" class="fl"></el-rate>
+                                                                <div class="fl">{{realValue}}<em>分</em></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="evaluate fl clearfix">
+                                                        <div class="pf_name fl">服务态度满意度</div>
+                                                        <div class="starRating fl">
+                                                            <div class="photo clearfix">
+                                                                <el-rate v-model="myValue" class="fl"></el-rate>
+                                                                <div class="fl">{{myValue}}<em>分</em></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="evaluate fl clearfix">
+                                                        <div class="pf_name fl">业务水平专业度</div>
+                                                        <div class="starRating fl">
+                                                            <div class="photo clearfix">
+                                                                <el-rate v-model="spValue" class="fl"></el-rate>
+                                                                <div class="fl">{{spValue}}<em>分</em></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="pj_text">
+                                                    <div class="text_area">
+                                                        <textarea name="" placeholder="说说置业顾问在服务过程中的表现，对您有哪些帮助？"></textarea>
+                                                        <p>0/30</p>
+                                                    </div>
+                                                </div>
+                                                <div class="bot_btn">
+                                                    <button class="submit_btn fl">提交评论</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="store_ad">
+                                <a href=""><img src="@/assets/images/store_ad.jpg" alt=""></a>
+                            </div>
+                            <div class="store_ad">
+                                <a href=""><img src="@/assets/images/store_ad.jpg" alt=""></a>
+                            </div>
+                            <div class="store_ad">
+                                <a href=""><img src="@/assets/images/store_ad.jpg" alt=""></a>
+                            </div>
+                            <div class="house-infor">
+                                <h2 class="clearfix"><span class="fl">您感兴趣的新房</span><a class="fr">更多</a></h2>
+                                <ul class="special_house_list clearfix">
+                                    <li v-for="(item,index) in getSecondHouseDetail.new_house" :key="index">
+                                        <div class="special_house_img">
+                                            <a href="" class="img"><img :src="item.house_thumb" width="100%"></a>
+                                            <div class="price_reduction">
+                                                <ul>
+                                                    <li class="title">
+                                                        <span>降</span>
+                                                        <img src="@/assets/images/price_reduction.png" width="100%">
+                                                    </li>
+                                                    <li>
+                                                        <span class="range">{{item.b_discount}}</span>
+                                                    </li>
+                                                </ul>
+                                                <span class="triangle"></span>
+                                            </div>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">{{item.b_name}}</a>
+                                            <ul>
+                                                <li>市场价: {{item.b_market_price}} 元/m2</li>
+                                                <li>活动价:&nbsp;<span>{{item.b_activity_price}}</span>&nbsp; 元/m2</li>
+                                                <li>建面:{{item.b_acreage}} ㎡</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="house-infor">
+                                <h2 class="clearfix"><span class="fl">同价位二手房</span><a class="fr">更多</a></h2>
+                                <ul class="special_house_list clearfix">
+                                    <li v-for="(item,index) in getSecondHouseDetail.price_house" :key="index">
+                                        <div class="special_house_img">
+                                            <a href="" class="img">
+                                                <img :src="item.house_thumb" width="100%">
+                                            </a>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">{{item.house_title}}</a>
+                                            <ul class="clearfix">
+                                                <li class="fl">单价: {{item.b_price}}元/m2</li>
+                                                <li class="fr">建面: {{item.b_acreage}} ㎡</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="part_right">
                             <div class="guide">
-                              <div class="guide_top clearfix">
-                                 <div class="fl">同小区二手房</div>
-                                 <a href="" class="more fr">更多</a>
-                              </div>
-                              <ul class="special_house_list">
-                                  <li>
-                                      <div class="special_house_img">
-                                          	<a href class="img">
-                                          		<img src="@/assets/images/special_house.jpg" width="100%" />
-                                          	</a>
+                                <div class="guide_top clearfix">
+                                    <div class="fl">同小区二手房</div>
+                                    <a href="" class="more fr">更多</a>
+                                </div>
+                                <ul class="special_house_list">
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img">
+                                                <img src="@/assets/images/special_house.jpg" width="100%" />
+                                            </a>
                                             <div class="sale">
-                                              	特价
-                                          	</div>
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                         <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                                  <li>
-                                      <div class="special_house_img">
-                                          <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
-
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                         <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                                  <li>
-                                      <div class="special_house_img">
-                                          <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
-
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                         <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                                  <li>
-                                      <div class="special_house_img">
-                                          <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
-
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                          <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                              </ul>
+                                                特价
+                                            </div>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="guide">
-                              <div class="guide_top clearfix">
-                                 <div class="fl">同小区同价位二手房</div>
-                                 <a href="" class="more fr">更多</a>
-                              </div>
-                              <ul class="special_house_list">
-                                  <li>
-                                      <div class="special_house_img">
-                                          <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
-                                            <div class="sale">
-                                              特价
-                                          </div>
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                         <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                                  <li>
-                                      <div class="special_house_img">
-                                          <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
+                                <div class="guide_top clearfix">
+                                    <div class="fl">同小区同价位二手房</div>
+                                    <a href="" class="more fr">更多</a>
+                                </div>
+                                <ul class="special_house_list">
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
+                                                <div class="sale">
+                                                特价
+                                            </div>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
 
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                         <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                                  <li>
-                                      <div class="special_house_img">
-                                          <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
 
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                         <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                                  <li>
-                                      <div class="special_house_img">
-                                          <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="special_house_img">
+                                            <a href class="img"><img src="@/assets/images/special_house.jpg" width="100%" /></a>
 
-                                      </div>
-                                      <div class="special_house_detail">
-                                          <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                          <ul>
-                                              <li><span>105.76 万元</span>/套</li>
-                                              <li>93.92 ㎡</li>
-                                              <li>4室2厅 · 低层 · 南北向</li>
-                                          </ul>
-                                      </div>
-                                  </li>
-                              </ul>
+                                        </div>
+                                        <div class="special_house_detail">
+                                            <a href="" class="title">[南昌] 中国铁建青秀城</a>
+                                            <ul>
+                                                <li><span>105.76 万元</span>/套</li>
+                                                <li>93.92 ㎡</li>
+                                                <li>4室2厅 · 低层 · 南北向</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -767,6 +776,14 @@ export default {
                 backgroundSize: "22px 22px",
             },
             getSecondHouseDetail:{},
+            //房屋真实度
+            realValue:0,
+            //服务满意度
+            myValue:0,
+            //业务专业度
+            spValue:0,
+            //好评点击
+            nowIndex:0,
         }
     },
     filters:{
@@ -849,6 +866,17 @@ export default {
             }
         }
 
+    },
+    methods:{
+        hPin(){
+            this.nowIndex = 1;
+        },
+        zPin(){
+            this.nowIndex = 2;
+        },
+        cPin(){
+            this.nowIndex = 3;
+        },
     },
     created(){
         this.axios.get(process.env.API_HOST+"secondhouse/Index/getSecondHouseDetail",{params:{id:this.$route.query.id}}).then((res) => {
@@ -952,67 +980,12 @@ export default {
         })
     }
 }
-
-$(function(){
-        $(".problem").hover(function(){
-                $(".shoufu_tan").toggle()
-            })
-
-            $(".pxMain_con .tiaoBox li").each(function(){
-                var lis = $(this).find('.tCon a .inputSty ');
-                for(var i=0;i<lis.length;i++){
-                var li = lis[i];
-                    $(li).click(function(event) {
-                    $(this).toggleClass('on_check');
-                });
-                }
-            });
-            $(".chioce_result ul li img").click(function(event) {
-            $(this).parent(".chioce_result ul li").remove();
-            });
-            $(".interlocution .tabbar a").click(function(){
-            $(this).addClass("active").siblings(".active").removeClass("active");
-            var n = $(this).index(".interlocution .tabbar a");
-            $(".interlocution ul").eq(n).show().siblings(".interlocution ul").hide();
-            });
-            $(".hot_houses .tabbar a").click(function(){
-            $(this).addClass("active").siblings(".active").removeClass("active");
-            var n = $(this).index(".hot_houses .tabbar a");
-            $(".hot_houses .hot_bot").eq(n).show().siblings(".hot_houses .hot_bot").hide();
-            });
-
-
-
-
-    $(".comment_list .comment .comment_top .conts .date .fr span.reply").click(function(event) {
-        $(this).parents(".comment_list .comment .comment_top .conts").find('.comment_list .comment .comment_top .conts .com_form').show();
-    });
-    $(".scenic_score .evaluate_img ul li").click(function(event) {
-        $(".scenic_score .evaluate_img ul li").removeClass('active');
-        $(this).addClass('active');
-    });
-    $(".scenic_score .read span").click(function(event) {
-        $(this).toggleClass('active');
-    });
-    $(".scenic_score .bot_btn .fl span").click(function(event) {
-        $(this).toggleClass('active');
-    });
-
-
-    //评分
-    var starRating = 0;
-    $('.photo span').on('click',function () {
-        var index = $(this).index()+1;
-        $(this).prevAll().find('.high').css('z-index',1)
-        $(this).find('.high').css('z-index',1)
-        $(this).nextAll().find('.high').css('z-index',0)
-        starRating = index*1;
-        $(this).parents(".starRating").find('.starNum').html(starRating.toFixed(0)+'分');
-    })
-})
 </script>
 
 <style scoped>
+.star_list .evaluate{
+    margin-right: 10px;
+}
 #content .crumbsSearch {
     background: #f2f2f2;
 }
@@ -1227,11 +1200,6 @@ $(function(){
 .sec-house-details .house-details .con-box .money {
     position: relative;
 }
-.sec-house-details .house-details .con-box .money p {
-    font-size: 14px;
-    line-height: 36px;
-    color: #666;
-}
 .sec-house-details .house-details .con-box .money p:nth-child(1) {
     margin-right: 60px;
 }
@@ -1246,33 +1214,43 @@ $(function(){
     line-height: 36px;
     color: #666;
 }
-.sec-house-details .house-details .con-box .money p span {
+.sec-house-details .house-details .con-box .money>div{
+    font-size: 14px;
+    line-height: 36px;
+    color: #666;
+    position: relative;
+}
+.sec-house-details .house-details .con-box .money>div>.problem{
     display: inline-block;
     width: 16px;
     height: 16px;
+}
+.sec-house-details .house-details .con-box .money>div>.problem em{
     border: 1px solid #666;
     line-height: 14px;
     font-size: 14px;
     border-radius: 50%;
     text-align: center;
-    margin-left: 3px;
     cursor: pointer;
+    display: block;
 }
-.sec-house-details .house-details .con-box .money .shoufu_tan {
+.sec-house-details .house-details .con-box .money>div>.problem>.shoufu_tan {
     position: absolute;
     z-index: 11;
-    top: -140px;
-    right: 85px;
-    width: 421px;
+    top: -155px;
+    right: -35px;
+    width: 455px;
     padding: 13px;
     color: #fff;
     border-radius: 2px;
     background-color: rgba(0,0,0,0.5);
     display: none;
 }
+.sec-house-details .house-details .con-box .money>div>.problem:hover .shoufu_tan{
+    display: block;
+}
 .sec-house-details .house-details .con-box .money .shoufu_tan h5 {
     font-size: 12px;
-    margin-bottom: 10px;
 }
 .sec-house-details .house-details .con-box .money .shoufu_tan p {
     font-size: 12px;
@@ -2031,7 +2009,7 @@ a {
     float: left;
     font-size: 12px;
     color: #999;
-    padding-left: 34px;
+    padding-left: 15px;
     width: 70px;
     height: 27px;
     line-height: 27px;
@@ -2039,19 +2017,23 @@ a {
     margin-right: 10px;
     cursor: pointer;
 }
-.scenic_score .evaluate_img ul li.li1 {
-    /* background: url(../../static/images/jjrdp15.png) no-repeat 11px center; */
+.scenic_score .evaluate_img ul li img{
+    vertical-align: text-top;
 }
 .scenic_score .evaluate_img ul li.li1.active {
-    /* background: url(../../static/images/jjrdp10.png) no-repeat #e93e0c 11px center; */
     border: 1px solid #e93e0c;
     color: #fff;
+    background-color: #e93e0c;
 }
-.scenic_score .evaluate_img ul li.li2 {
-    /* background: url(../../static/images/jjrdp16.png) no-repeat 11px center; */
+.scenic_score .evaluate_img ul li.li2.active {
+    border: 1px solid #ffae02;
+    color: #fff;
+    background-color: #ffae02;
 }
-.scenic_score .evaluate_img ul li.li3 {
-    /* background: url(../../static/images/jjrdp17.png) no-repeat 11px center; */
+.scenic_score .evaluate_img ul li.li3.active {
+    border: 1px solid #999;
+    background-color: #999;
+    color: #fff;
 }
 .scenic_score .pf_name {
     width: 109px;
