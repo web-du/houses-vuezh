@@ -2,7 +2,7 @@
     <div class="info_list" id="infoLists">
         <ul>
             <li v-for="(item,index) in infoList" :key="index">
-              <router-link :to="{ path: '/houseInfo/infoDetail',query:{id:item.id}}">
+              <router-link :to="{ path: '/houseInfo/infoDetail',query:{id:item[0].id}}">
                 <div class="info">
                     <div class="info_body">
                         <div class="title">

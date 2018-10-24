@@ -362,13 +362,13 @@
         },
         created(){
               
-            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_type:3}).then((response) => {      
+            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_type:3,b_lease:1}).then((response) => {      
                   
                  this.recruit=response.data.data.data
-                //   console.log(this.recruit)  
+                  console.log(response)  
                  this.pagenum=response.data.data.total
                  this.sum=response.data.data.total
-                 console.log(this.pagenum)
+                //  console.log(this.pagenum)
                 
              }).catch((err) => {
               
@@ -404,7 +404,7 @@
                  this.isallcalss=false
                  this.cateid=cate_id
                  this.val=1
-                 this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{page:1,size:10,house_tags:cate_id,b_type:3}}).then((response) => {      
+                 this.axios.get(process.env.API_HOST+ 'house/buildings/buildings',{params:{page:1,size:10,house_tags:cate_id,b_type:3,b_lease:1}}).then((response) => {      
                  this.pagenum=pagesnum
                  this.recruit=response.data.data.data
                     console.log(this.recruit)  
@@ -421,7 +421,7 @@
               this.isclass=-1
                this.cateid=""
                this.pagenum=this.sum
-              this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_type:3}).then((response) => {      
+              this.axios.post(process.env.API_HOST +'house/buildings/buildings',{page:1,size:10,b_type:3,b_lease:1}).then((response) => {      
               this.recruit=response.data.data.data
                     console.log(this.recruit)  
                 
@@ -435,7 +435,7 @@
            },
            handleCurrentChange(val) {
                 this.val=val
-            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{house_tags:this.cateid,page:this.val,size:10,b_type:3}).then((response) => {      
+            this.axios.post(process.env.API_HOST +'house/buildings/buildings',{house_tags:this.cateid,page:this.val,size:10,b_type:3,b_lease:1}).then((response) => {      
                 
                  this.recruit=response.data.data.data
                   console.log(this.recruit)  

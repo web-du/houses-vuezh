@@ -341,6 +341,13 @@ const routes = [{
         component: (resolve) => require(['@/components/home/houseInfo/policy.vue'], resolve)
     },
     {
+        path: "/houseInfo/infoDetail",
+        meta: {
+            title: '资讯详情'
+        },
+        component: (resolve) => require(['@/components/home/houseInfo/infoDetail.vue'], resolve)
+    },
+    {
         path: "/encyclopedias/propertyKnowledge",
         meta: {
             title: '房产知识'

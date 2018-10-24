@@ -1,211 +1,266 @@
 <template>
-    <div class="straight_matter" id="straight_matter" >
-        <div class="title">
-            <h2>{{title}}</h2>
-            <div class="to clearfix">
-                <div class="time fl">
-                    <span>{{date}}</span>
-                    <span>来源：{{source}}</span>
-                </div>
-                <div class="op fr">
-                    <span class="zan">
-                        <img src="@/assets/images/Dw-zan.png" >
-                        <em>点赞</em>
-                    </span>
-                    <span class="xin">
-                        <img src="@/assets/images/Dw-xin.png" >
-                        <em>收藏</em>
-                    </span>
-                    <span class="feng">
-                        <img src="@/assets/images/Dw-feng.png" >
-                        <em>分享</em>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="con">
-            <p>{{text}}</p>
-            <img :src="img" >
-            <p>一、按套内建筑面积或者建筑面积计价的房屋交易</p>
-            <p>通常来说，商品房的计价方法有两种，其中一种即是按套内建筑面积或者建筑面积计价的房屋交易。这种情况下，当事人应当在合同中约定实测面积与登记面积发生误差的处理方式。合同中有约定的，出现问题时按合同处理，合同未作约定的，又分两种情况处理：</p>
-            <p>1、面积误差绝对值在3％以内（含3％）的</p>
-            <p>出现面积误差这种情况，通常会请求专业人士现场测绘，公布结果。如果面积误差绝对值在3％以内，则要根据实际面积重新结算房款，多余的房款要退还给购房者。此时，如果购房者请求解除合同的，法律上是不予支持，同样，开发商拒绝退还多余房款，也是不合理的。</p>
-            <p>2、面积误差绝对值超出3％</p>
-        </div>
-        <div class="label">
-            <span>在售</span>
-            <span>普通住宅</span>
-            <span>湖景地产</span>
-        </div>
-        <div class="Tonext clearfix">
-            <a href="#" class="fl">上一篇，置业指南：购房者如何评估自己的购房能力？</a>
-            <a href="#" class="fr">下一篇，购房宝典：返乡置业需要注意哪些问题？</a>
-        </div>
-        <div class="advertisement">
-            <ul>
-                <li>
-                    <a href="#">
-                        <img src="@/assets/images/advertisement-img.jpg" >
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="@/assets/images/advertisement-img.jpg" >
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img src="@/assets/images/advertisement-img.jpg" >
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="comment">
-            <div class="friend clearfix">
-                <span class="title fl">网友点评</span>
-                <span class="to fr"><a href="#">我要点评</a></span>
-            </div>
-            <div class="comment_list this">
-              <div class="comm">
-                  <div class="comment_top">
-                      <div class="img_logo fl"><img src="@/assets/images/jjrdp1.png" alt=""></div>
-                      <div class="conts fr">
-                          <div class="text">新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房㎡左右；项目主力户型为建面约66㎡、82㎡、97㎡和98㎡</div>
-                          <div class="img_bot">
-                              <div class="imgs fl"><div class="title"><img src="@/assets/images/lpdp32.jpg"></div><img src="@/assets/images/lpdp32.jpg" alt="" id="beforeTreat11"  v-on:click="changeSize(this.id)"></div>
-                              <div class="imgs fl"><div class="title"><img src="@/assets/images/lpdp32.jpg"></div><img src="@/assets/images/lpdp32.jpg" alt="" id="beforeTreat12"  v-on:click="changeSize(this.id)"></div>
-                              <div class="imgs fl"><div class="title"><img src="@/assets/images/lpdp32.jpg"></div><img src="@/assets/images/lpdp32.jpg" alt="" id="beforeTreat13"  v-on:click="changeSize(this.id)"></div>
-                              <div class="clear"></div>
-                          </div>
-                          <div class="date">
-                              <div class="fl">武汉-网友楼市动态 2018-06-18 发布</div>
-                              <div class="fr"><span>有用（0）</span>  <span class="reply">回复（0）</span></div>
-                              <div class="clear"></div>
-                          </div>
-                      </div>
-                      <div class="clear"></div>
-                  </div>
-              </div>
-              <div class="comm">
-                  <div class="comment_top">
-                      <div class="img_logo fl"><img src="@/assets/images/jjrdp1.png" alt=""></div>
-                      <div class="conts fr">
-                          <div class="text">新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房㎡左右；项目主力户型为建面约66㎡、82㎡、97㎡和98㎡</div>
-                          <div class="date">
-                              <div class="fl">武汉-网友楼市动态 2018-06-18 发布</div>
-                              <div class="fr"><span>有用（0）</span>  <span class="reply">回复（0）</span></div>
-                              <div class="clear"></div>
-                          </div>
-                      </div>
-                      <div class="clear"></div>
-                  </div>
-              </div>
-            </div>
-        </div>
-        <div class="publish">
-            <h2>发表评论</h2>
-            <table>
-                <tr>
-                    <td>评论</td>
-                    <td>
-                        <textarea name="name" placeholder="说说你的满意之处和不满之处，楼盘配套如何？交通如何？以及绿化环境等等…"></textarea>
-                        <em>0/30</em>
-                    </td>
-                </tr>
-                <tr>
-                    <td>上传照片</td>
-                    <td>
-                        <input type="file" name="" value="">
-                        <img src="@/assets/images/Dw-img14.jpg" >
-                    </td>
-                </tr>
-                <tr>
-                    <td>验证码</td>
-                    <td>
-                        <span id="idcode"></span>
-                        <input type="text" id="Txtidcode" class="txtVerification" placeholder="输入验证码"/>
-                        <div>
-                            <button type="button" id="btns">验证</button>
+    <div id="knowledge-details">
+        <!--面包屑导航-->
+        <crumbs-search></crumbs-search>
+        <!--广告-->
+  
+        <div class="b-box clearfix">
+            <div class="straight_matter fl">
+                <!--知识详情-->
+                <!-- <knowledge-cont></knowledge-cont> -->
+                <div class="straight_matter" id="straight_matter" >
+                    <div class="title">
+                        <h2>{{details.post_title}}</h2>
+                        <div class="to clearfix">
+                            <div class="time fl">
+                                <span>{{details.create_time}}</span>
+                                <span>来源：房乐士</span>
+                            </div>
+                            <div class="op fr">
+                                <span class="zan">
+                                    <img src="@/assets/images/Dw-zan.png" >
+                                    <em>点赞</em>
+                                </span>
+                                <span class="xin">
+                                    <img src="@/assets/images/Dw-xin.png" >
+                                    <em>收藏</em>
+                                </span>
+                                <span class="feng">
+                                    <img src="@/assets/images/Dw-feng.png" >
+                                    <em>分享</em>
+                                </span>
+                            </div>
                         </div>
-                    </td>
-                </tr>
-            </table>
-            <p><input type="checkbox"><span>已阅读《楼盘点评内容管理规范》</span></p>
-            <div class="sub">
-                <span>提交评论</span><input type="checkbox"><span>匿名点评</span>
+                    </div>
+                    <div class="con">
+                         <p>{{details.post_content}}</p>
+                        <img :src="details.thumbnail" >
+                        <p>一、按套内建筑面积或者建筑面积计价的房屋交易</p>
+                        <p>通常来说，商品房的计价方法有两种，其中一种即是按套内建筑面积或者建筑面积计价的房屋交易。这种情况下，当事人应当在合同中约定实测面积与登记面积发生误差的处理方式。合同中有约定的，出现问题时按合同处理，合同未作约定的，又分两种情况处理：</p>
+                        <p>1、面积误差绝对值在3％以内（含3％）的</p>
+                        <p>出现面积误差这种情况，通常会请求专业人士现场测绘，公布结果。如果面积误差绝对值在3％以内，则要根据实际面积重新结算房款，多余的房款要退还给购房者。此时，如果购房者请求解除合同的，法律上是不予支持，同样，开发商拒绝退还多余房款，也是不合理的。</p>
+                        <p>2、面积误差绝对值超出3％</p>
+                    </div>
+                    <div class="label">
+                        <span>在售</span>
+                        <span>普通住宅</span>
+                        <span>湖景地产</span>
+                    </div>
+                    <div class="Tonext clearfix">
+                       <span class="fl" @click="toPrev()">上一篇，<em>{{nextTitle.prev}}</em></span>
+                        <span class="fr" @click="toNext()">下一篇，<em>{{nextTitle.next}}</em></span>
+                    </div>
+                    <div class="advertisement">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="@/assets/images/advertisement-img.jpg" >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="@/assets/images/advertisement-img.jpg" >
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="@/assets/images/advertisement-img.jpg" >
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="comment">
+                        <div class="friend clearfix">
+                            <span class="title fl">网友点评</span>
+                            <span class="to fr"><a href="#">我要点评</a></span>
+                        </div>
+                        <ul>
+                            <li class="clearfix">
+                                <div class="img fl">
+                                    <img src="@/assets/images/Dw-img12.png" >
+                                </div>
+                                <div class="text fr">
+                                <p>新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房㎡左右；项目主力户型为建面约66㎡、82㎡、97㎡和98㎡18</p>
+                                    <div class="time clearfix">
+                                        <span class="fl">艾迪森 2018-06-18 发布</span>
+                                        <div class="reply fr">
+                                            <span class="use">有用(<em>0</em>)</span>
+                                            <span class="toreply"><a href="#">回复(<em>0</em>)</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="img fl">
+                                    <img src="@/assets/images/Dw-img12.png" >
+                                </div>
+                                <div class="text fr">
+                                    <p>新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房源总价120万起，单价约17000-19000元/㎡，建面新华御湖上园目前在售房㎡左右；项目主力户型为建面约66㎡、82㎡、97㎡和98㎡18你档口认识几个那块巨石v而是哭给你看较为看见你开始分割开来更让耳热看见你</p>
+                                    <div class="photo">
+                                        <img src="@/assets/images/Dw-img13.jpg">
+                                    </div>
+                                    <div class="time clearfix">
+                                        <span class="fl">艾迪森 2018-06-18 发布</span>
+                                        <div class="reply fr">
+                                            <span class="use">有用(<em>0</em>)</span>
+                                            <span class="toreply"><a href="#">回复(<em>0</em>)</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="publish">
+                        <h2>发表评论</h2>
+                        <table>
+                            <tr>
+                                <td>评论</td>
+                                <td>
+                                    <textarea name="name" placeholder="说说你的满意之处和不满之处，楼盘配套如何？交通如何？以及绿化环境等等…"></textarea>
+                                    <em>0/30</em>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>上传照片</td>
+                                <td>
+                                    <input type="file" name="" value="">
+                                    <img src="@/assets/images/Dw-img14.jpg" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>验证码</td>
+                                <td class="clearfix">
+                                    <input type="button" id="code" @click="createCode"  class="verification1 fl" v-model="checkCode"/>
+                                    <input type="text" id="Txtidcode" class="txtVerification fl" placeholder="输入验证码"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <p><input type="checkbox"><span>已阅读《楼盘点评内容管理规范》</span></p>
+                        <div class="sub">
+                            <span>提交评论</span><input type="checkbox"><span>匿名点评</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lovely fr">
+                <!-- 猜你喜欢 -->
+                <likely></likely>
+                <!-- 热门知识 -->
+                <hot-Knowledge></hot-Knowledge>
+                 <!-- 热门问答 -->
+                <hot-questions></hot-questions>
             </div>
         </div>
     </div>
 </template>
-
 <script>
+import crumbsSearch from "@/components/main/crumbsSearch";
+import knowledgeActive from "@/components/home/encyclopedias/knowledgeActive";
+import likely from "@/components/main/likely";
+import hotKnowledge from "@/components/main/hotKnowledge";
+import hotQuestions from "@/components/main/hotQuestions";
+var code ;
 export default {
-    name: "straightMatter",
+    components: {
+        crumbsSearch,
+        knowledgeActive,
+        likely,
+        hotKnowledge,
+        hotQuestions
+    },
     data() {
         return {
-            title:'',
-            date:'',
-            source:'',
-            img:'',
-            text:'',
-            straightMatter: []
+            curCond: [],
+            housesList: [],
+            details:{},
+            checkCode:'',
+            //上一篇，下一篇的标题
+            nextTitle:{prev:'',next:''},
+            //获取id
+            thisId:this.$route.query.id,
         };
     },
-    mounted(){
-        this.axios.post(process.env.API_HOST +'commonality/message/message_details',{id:this.$route.query.id}).then((response) => {
-            this.title = response.data.data[0][0].post_title
-            this.date = response.data.data[0][0].create_time
-            this.source = response.data.data[0][0].post_source
-            this.img = response.data.data[0][0].thumbnail
-            this.text = response.data.data[0][0].post_content[0]
-            this.straightMatter=response.data.data
-           console.log(response)
-        })
-    },
     methods: {
-       changeSize:function (id) {  
-          var img = $("#"+id);  
-          var oWidth=img.width(); //取得图片的实际宽度  
-          var oHeight=img.height(); //取得图片的实际高度  
-          $("#"+id).live("click",function(){  
-              $(this).toggle(function(){   
-                    img.width(oWidth + 300);  
-                    img.height(oHeight + 270/oWidth*oHeight);  
-                    $(this).parent().addClass('active');
-                    $(this).parent().siblings('.img_bot .imgs').hide(); 
-                    $(this).siblings(".img_bot .imgs .title").show();
-                }, function(){   
-                    img.width(oWidth);  
-                    img.height(oHeight);   
-                    $(this).parent().removeClass('active');
-                    $(this).parent().siblings('.img_bot .imgs').show(); 
-                    $(this).siblings(".img_bot .imgs .title").hide();
-                }).trigger('click');  
-
-          });  
+        // 图片验证码
+        createCode(){
+            code = "";    
+            var codeLength = 4;//验证码的长度   
+            var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',   
+            'S','T','U','V','W','X','Y','Z');//随机数   
+            for(var i = 0; i < codeLength; i++) {//循环操作   
+                var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35）   
+                code += random[index];//根据索引取得随机数加到code上   
+            }   
+                this.checkCode = code;//把code值赋给验证码;   
         },
-        btnClick:function (){
-            var IsBy = $.idcode.validateCode();
-            alert(IsBy);
-            console.log(IsBy);
+        toPrev(){
+            this.$router.push({path:'/houseInfo/infoDetail',query:{id:this.details.front.id}});
+            this.$router.go(0);
+        },
+        toNext(){
+            this.$router.push({path:'/houseInfo/infoDetail',query:{id:this.details.after.id}});
+            this.$router.go(0);
         }
+    },
+    watch:{
+        thisId:function(val,oldval){
+            console.log(val)
+            this.axios.post(process.env.API_HOST+'commonality/message/message_details',{id:val}).then((response) => {
+                //console.log(response.data.data)
+                this.details = response.data.data[0];
+                this.nextTitle.prev = response.data.data[0].front.post_title;
+                this.nextTitle.next = response.data.data[0].after.post_title;
+                console.log(this.details)
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
+    },
+    created() {
+        console.log(this.$route.query.id)
+        this.createCode();
+        this.axios.post(process.env.API_HOST+'commonality/message/message_details',{id:this.$route.query.id}).then((response) => {
+           //console.log(response.data.data)
+           this.details = response.data.data[0];
+           this.nextTitle.prev = response.data.data[0].front.post_title;
+           this.nextTitle.next = response.data.data[0].after.post_title;
+          console.log(this.details)
+        }).catch((err) => {
+          console.log(err);
+        })
     }
-
 };
 </script>
-
 <style scoped>
-.hide { display:none;}
-.fl { float:left;}
-.fr { float:right;}
-.clearfix:after { content:" "; display:block; clear:both; height:0; }
-.clearfix { zoom:1; }
-*{-moz-box-sizing: border-box;
-     -webkit-box-sizing: border-box;
-     -o-box-sizing: border-box;
-     -ms-box-sizing: border-box;
-     box-sizing: border-box;
-     outline:none; }
+.b-box {
+  width: 1200px;
+  margin: 0 auto 30px;
+}
+#ehong-code-tip-ck{
+  display: none;
+}
+.ehong-idcode-val{
+  width: 126px;
+  height: 45px;
+  display: inline-block;
+  line-height: 45px;
+  text-align: center;
+  font-size: 18px;
+}
+#btns{
+  display: none;
+}
+#code{
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #053d84;
+    background: #f2f2f5;
+    border: 1px solid #e6e6e6;
+    height: 45px;
+    vertical-align: middle;
+    width: 112px;
+    margin-right: 20px;
+}
 /**广告位**/
 .advertisement {
   margin: 0 auto;
@@ -313,12 +368,13 @@ export default {
 .b-box .straight_matter .Tonext {
   margin-top: 50px;
 }
-.b-box .straight_matter .Tonext a {
+.b-box .straight_matter .Tonext span {
   font-size: 14px;
   color: #666666;
   line-height: 29px;
+  cursor: pointer;
 }
-.b-box .straight_matter .Tonext a:hover{
+.b-box .straight_matter .Tonext span:hover{
 	color:#e93e0c;
 }
 .b-box .straight_matter .comment .friend {

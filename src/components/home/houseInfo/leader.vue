@@ -1,24 +1,24 @@
 <template>
-    <div class="info_list" id="index">
+    <div class="info_list" id="infoLists">
         <ul>
             <li v-for="(item,index) in infoList" :key="index">
-              <router-link :to="{ path: '/houseInfo/infoDetail',query:{id:item.id}}">
+               <router-link :to="{ path: '/houseInfo/infoDetail',query:{id:item[0].id}}">
                 <div class="info">
                     <div class="info_body">
                         <div class="title">
-                            <h3>{{title}}</h3>
+                            <h3>{{item[0].post_title}}</h3>
                             <span class="setTop">置顶</span>
                         </div>
                         <div class="content">
-                            {{text}}
+                            {{item[0].post_excerpt}}
                             <a href="javascript:void(0)">[详情]</a>
                         </div>
                         <div class="explain">
-                            <span>来源:{{source}}</span>
-                            <span>时间: {{date}}</span>
+                            <span>来源:{{item[0].post_source}}</span>
+                            <span>时间: {{item[0].create_time}}</span>
                         </div>
                     </div>
-                    <img :src="Url" width="100%" class="info_img" />
+                    <img :src="item[0].thumbnail" width="100%" class="info_img" />
                 </div>
               </router-link>
             </li>
@@ -45,22 +45,14 @@ export default {
     // },
     data() {
         return {
-            title:'',
-            text:'',
-            Url:'',
-            date:'',
-            source:'',
+          
             infoList:[],
         };
     },
     mounted(){
          this.axios.post(process.env.API_HOST +'commonality/message/message_list',{id:this.nowId}).then((response) => {
             this.infoList=response.data.data
-            this.title = response.data.data[0][0].post_title
-            this.text = response.data.data[0][0].post_content
-            this.Url = response.data.data[0][0].thumbnail
-            this.date = response.data.data[0][0].create_time
-            this.source = response.data.data[0][0].post_source
+         
             
            console.log(response)
         })

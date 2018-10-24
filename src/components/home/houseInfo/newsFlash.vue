@@ -6,7 +6,7 @@
         <!--导航-->
         <div class="nav" id="nav">
             <ul>
-                <li :class="{now : isclass==index}"  v-for="(item,index) in tabList"  :key="index"  @click="tabfun(index)">{{item.title}}</li>
+                <li :class="{now : isclass==index}"  v-for="(item,index) in categorynav"  :key="index"  @click="tabfun(item.name,item.id)">{{item.name}}</li>
             </ul>
         </div>
         <layout>
@@ -48,7 +48,8 @@ export default {
         return {
             recruit:[],
             categoryList:[],
-            categoryId:0,
+            categorynav:[],
+            categoryId:1,
             componentId:"index",
             tabList:[
                 {id:0,title:"首页"},
@@ -77,33 +78,27 @@ export default {
         bottomAd
     },
     created(){
-            this.axios.post(process.env.API_HOST +'commonality/message/category_list',{page:1,size:6}).then((response) => {          
-                 this.categoryList=response.data.data
-                 this.categoryId = response.data.data[0].id
-                 this.categoryList.forEach((item) => {
-                      if(item.children.length>0){
-                        this.classify.push(item)
-                      }
-                 });
-    
+            this.axios.post(process.env.API_HOST +'commonality/message/category_list').then((response) => {  
+                this.categorynav=response.data.data       
                 console.log(response)
              }).catch((err) => {
               
             })
+           
         },
         methods:{
-            tabfun:function(index,item){
+            tabfun:function(name,id){
                 this.isclass=index
-                this.categoryId = index+1
-               if(index==0){
+                this.categoryId = id
+               if(name=="首页"){
                     this.componentId="index"
-                }else if(index==1){
+                }else if(name=="资讯"){
                     this.componentId="infoList"
-                }else if(index==2){
+                }else if(name=="市场"){
                     this.componentId="market"
-                }else if(index==3){
+                }else if(name=="导购"){
                     this.componentId="leader"
-                }else if(index==4){
+                }else if(name=="专题"){
                     this.componentId="hotTopic"
                 }else{
                     this.componentId="videos"
