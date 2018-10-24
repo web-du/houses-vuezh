@@ -254,8 +254,8 @@
                 <div class="part clearfix">
                     <div class="part_left">
                         <ul class="nhouse_list_nav clearfix" ctm-data="list_type" style="position: relative;">
-                            <li id="" :class="{on : currentIndex == -1 }"><a id="allUrl" href="" @click.stop.prevent="All()">全部房源<span>({{Total}})</span></a></li>
-                            <li id="" v-for="(item,index) in Tags_name" :key="index" :class="{ on : currentIndex == index}"><a href="" @click.prevent = "Switch(item.id,index)">{{item.tags_name}}<span>({{item.total}})</span></a></li>
+                            <li id="" :class="{on : currentIndex == -1 }"><a id="allUrl" href="" @click.stop.prevent="All()">全部房源<span>({{Sum}})</span></a></li>
+                            <li id="" v-for="(item,index) in Tags_name" :key="index" :class="{ on : currentIndex == item.id}"><a href="" @click.prevent = "Switch(item.id,index,item.total)">{{item.tags_name}}<span>({{item.total}})</span></a></li>
                             <li class="floatr rankWrap">
                                 <div class="rankBox">
                                     <ul class="clearfix">
@@ -281,7 +281,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="houses_list houses_list2">
+                        <div class="houses_list houses_list2 clearfix">
                             <ul>
                                 <li v-for="(item,index) in saleHouse" :key="index">
                                     <router-link :to="{path:'/handHouse/handHousedetail',query:{id:item.id}}">
@@ -336,29 +336,17 @@
                                     </router-link>
                                 </li>
                             </ul>
-                            <div class="more_box">
-                                    <div class="more_ssp">
-                                        <a href="">&lt; 上一页</a>
-                                        <span class="cpb current">1</span>
-                                        <a href="">2</a>
-                                        <a href="">3</a>
-                                        <a href="">4</a>
-                                        <a href="">5</a>
-                                        <a href="">6</a>
-                                        <a href="">下一页 &gt;</a>
-                                    </div>
-                                    <div class="clear"></div>
+                            <div class="page-box">
+                                <el-pagination
+                                background
+                                layout="prev, pager, next"
+                                :total="Total" @current-change="cliCurrent" :pager-count=7 :page-size=1 @prev-click="pre" @next-click="next">
+                                </el-pagination>
                             </div>
-                            <div class="clear"></div>
                         </div>
                     </div>
 
                     <div class="part_right">
-                        <!-- <div class="enroll">
-                            <h3 class="title">已享受房乐士直通车VIP服务</h3>
-                            <span class="num"><span>702、301</span> 人次</span>
-                            <a class="btn" href="javascript:void(0)">立刻报名</a>
-                        </div> -->
                         <div class="guide">
                             <div class="guide_top clearfix">
                                 <div class="fl">二手房资讯</div>
@@ -571,25 +559,55 @@
                 //全部房源
                 Sum:0,
                 currentIndex:-1,
+                Total:0,
             }
         },
         methods:{
             All(){
-               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist').then((response) => {
+               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{size:1}).then((response) => {
                     //console.log(response.data.data);
                     this.saleHouse = response.data.data.data;
                     this.currentIndex = -1;
-                    console.log(response)
+                    //console.log(this.saleHouse)
+                    this.Total = response.data.data.total;
+                    this.house_Tags = '';
                 }).catch((err) => {
                     console.log(err);
                 })
             },
-            Switch(data,index){
+            Switch(data,index,total){
                 this.currentIndex = index;
-               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:10,house_tags:data}).then((response) => {
+                this.house_Tags = data;
+                console.log(data)
+                this.Total = total;
+               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:1,house_tags:data}).then((response) => {
                     //console.log(response.data.data);
                     this.saleHouse = response.data.data.data;
-                    console.log(this.saleHouse)
+                    //console.log(this.saleHouse)
+                }).catch((err) => {
+                    console.log(err);
+                })
+            },
+            //点击当前页
+            cliCurrent(val){
+                this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:val,size:1,house_tags:this.house_Tags}).then((response) => {
+                    this.saleHouse = response.data.data.data;
+                }).catch((err) => {
+                    console.log(err);
+                })
+            },
+            //点击下一页
+            next(val){
+                this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:val,size:1,house_tags:this.house_Tags}).then((response) => {
+                    this.saleHouse = response.data.data.data;
+                }).catch((err) => {
+                    console.log(err);
+                })
+            },
+            //点击上一页
+            pre(val){
+                this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:val,size:1,house_tags:this.house_Tags}).then((response) => {
+                    this.saleHouse = response.data.data.data;
                 }).catch((err) => {
                     console.log(err);
                 })
@@ -600,33 +618,38 @@
                 return value + "发布";
             }
         },
-        computed:{
-            //获取房源列表的总数
-            Total:function(){
-                return this.Tags_name.reduce((acc,cur)=>{
-                    return acc + cur.total;
-                },0);
-                
-            }
-        },
         created(){
-            //获取二手房房源列表
-           this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:10}).then((response) => {
-                //console.log(response.data.data);
-                this.saleHouse = response.data.data.data;
-                console.log(this.saleHouse)
-            }).catch((err) => {
-                console.log(err);
-            })
-
-
             //获取二手房房源标签
            this.axios.post(process.env.API_HOST + 'secondhouse/Index/getHouseTags').then((res) =>{
                 //console.log(res.data.data);
                 this.Tags_name = res.data.data;
+                //进入优选房源时默认选中优选房源
+                this.Tags_name.forEach((Tag)=>{
+                    if(Tag.tags_name == "优选房源"){
+                        this.currentIndex = Tag.id;
+                        this.Total = Tag.total;
+                    }
+                })
+                this.Sum = this.Tags_name.reduce((acc,cur)=>{
+                    return acc + cur.total;
+                },0);
+
+                //获取二手房房源列表
+                this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:1,house_tags:this.currentIndex}).then((response) => {
+                    //console.log(response.data.data);
+                    //console.log(this.currentIndex)
+                    this.saleHouse = response.data.data.data;
+                    //console.log(this.saleHouse)
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+
             }).catch((err) => {
                 console.log(err);
             })
+
+            
             
         },
         mounted(){
@@ -1098,6 +1121,7 @@
 }
 .houses_list>ul {
     width: 100%;
+    margin-bottom: 50px;
 }
 .houses_list>ul>li:nth-child(1) {
     margin-top: 0;
@@ -1297,16 +1321,17 @@
     width: 100%;
 }
 .guide .guide_top {
+    margin: 30px auto 10px;
+}
+.guide .guide_top>div{
     font-size: 18px;
     color: #333;
-    margin: 30px auto 10px;
 }
 .guide .guide_top .more {
     font-size: 14px;
     color: #999;
 }
 .guide .guide_bot li a {
-    padding-left: 15px;
     font-size: 14px;
     color: #333;
     display: block;
@@ -1315,6 +1340,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 295px;
+}
+.guide .guide_bot li a::before{
+    display: inline-block;
+    content:'•';
+    margin-right: 10px;
+}
+.guide .guide_bot li a:hover{
+    color: #e93e0c;
 }
 .Dw-want {
     margin: 15px 0;

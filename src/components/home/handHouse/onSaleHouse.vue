@@ -348,11 +348,6 @@
                     </div>
 
                     <div class="part_right">
-                        <!-- <div class="enroll">
-                            <h3 class="title">已享受房乐士直通车VIP服务</h3>
-                            <span class="num"><span>702、301</span> 人次</span>
-                            <a class="btn" href="javascript:void(0)">立刻报名</a>
-                        </div> -->
                         <div class="guide">
                             <div class="guide_top clearfix">
                                 <div class="fl">二手房资讯</div>
@@ -576,7 +571,7 @@
                     //console.log(response.data.data);
                     this.saleHouse = response.data.data.data;
                     this.currentIndex = -1;
-                    //console.log(response)
+                    //console.log(this.saleHouse)
                     this.Total = response.data.data.total;
                     this.house_Tags = '';
                 }).catch((err) => {
@@ -586,8 +581,9 @@
             Switch(data,index,total){
                 this.currentIndex = index;
                 this.house_Tags = data;
+                console.log(data)
                 this.Total = total;
-               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:10,house_tags:data}).then((response) => {
+               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:1,house_tags:data}).then((response) => {
                     //console.log(response.data.data);
                     this.saleHouse = response.data.data.data;
                     //console.log(this.saleHouse)
@@ -613,7 +609,7 @@
             },
             //点击上一页
             pre(val){
-                this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:val,size:1}).then((response) => {
+                this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:val,size:1,house_tags:this.house_Tags}).then((response) => {
                     this.saleHouse = response.data.data.data;
                 }).catch((err) => {
                     console.log(err);

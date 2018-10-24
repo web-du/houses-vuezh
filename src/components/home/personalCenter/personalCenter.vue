@@ -118,7 +118,7 @@
             }
         },
         created() {
-            this.axios.get(process.env.API_HOST+'user/profile/userInfo').then((response) => {
+            this.axios.get(process.env.API_HOST+'user/profile/userInfo',{params:{user_id:this.$store.getters.userInfor.id}}).then((response) => {
                 //console.log(response.data.data);
                 this.user_infor = response.data.data;
                 console.log(this.user_infor);
