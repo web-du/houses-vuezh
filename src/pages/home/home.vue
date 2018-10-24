@@ -36,14 +36,14 @@ export default {
 
 <style>
 .el-pagination.is-background .el-pager li:not(.disabled).active{
-    background-color:#e93e0c;
+    background-color:#e93e0c !important;
 }
 .el-pager li{
-  padding: 0 20px;
+  padding: 0 20px !important;
 }
 /* 星星间距 */
 .el-rate__icon{
-  margin-right: 3px;
+  margin-right: 3px !important;
   color: #e93e0c !important;
 }
 </style>

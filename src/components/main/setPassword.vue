@@ -43,7 +43,7 @@ export default {
     },
     methods:{
         toSet(){
-           this.axios.post(process.env.API_HOST + '/api/user/login/passwordReset',{username:this.newInfor.username,code:this.newInfor.code,repassword:this.newInfor.repassword,password:this.newInfor.password}).then((res) => {
+           this.axios.post(process.env.API_HOST + 'user/login/passwordReset',{username:this.newInfor.username,code:this.newInfor.code,repassword:this.newInfor.repassword,password:this.newInfor.password}).then((res) => {
                 console.log(res);
                 if(res.data.code == 0 && res.data.error_type == 1){
                     this.psdNotice = res.data.msg;
