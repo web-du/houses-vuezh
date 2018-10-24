@@ -413,7 +413,7 @@
                                     <div class="chaet_name">
                                         2017.08-2018.08房价走势图（元/㎡）
                                     </div>
-                                    <div class="chaet" id="chaet" _echarts_instance_="ec_1539742645026" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"><div style="position: relative; overflow: hidden; width: 1200px; height: 188px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas width="1200" height="188" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 1200px; height: 188px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 285px; top: -53px;">2017.10<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#ff6403;"></span>本项目参考价: 6,400<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#a0cb47;"></span>孝感房价: 6,100<br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#0186ff;"></span>孝南房价: 5,690</div></div>
+                                    <div class="chaet" id="chaet"></div>
                             </div>
 
 
@@ -535,8 +535,12 @@
                                 </div>
                             <div class="picScroll-left">
                                 <div class="hd">
-                                    <a class="next"></a>
-                                    <a class="prev"></a>
+                                    <a class="next">
+                                        <img src="@/assets/images/store_bnext.png" >
+                                    </a>
+                                    <a class="prev">
+                                        <img src="@/assets/images/store_bprev.png" >
+                                    </a>
                                 </div>
                                 <div class="bd">
                                     <div class="tempWrap" style="overflow:hidden; position:relative; width:1225px"><div class="tempWrap" style="overflow:hidden; position:relative; width:1225px"><ul class="picList" style="width: 1470px; left: -245px; position: relative; overflow: hidden; padding: 0px; margin: 0px;">
@@ -629,7 +633,7 @@
                                 <div class="jsjg fr">
                                 <h2>您的账单</h2>
                                 <div class="bill">均价：<span>待定</span>估算总计：<span>约106万</span></div>
-                                <div class="pie" id="pie" _echarts_instance_="ec_1539742645027" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"><div style="position: relative; overflow: hidden; width: 460px; height: 205px; padding: 0px; margin: 0px; border-width: 0px;"><canvas width="460" height="205" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 460px; height: 205px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+                                <div class="pie" id="pie"></div>
                                 <div class="amount">每月还款：<span>17248元</span></div>
                                 <div class="tipd">*备注：房贷、税费查询结果仅供参考</div>
                                 </div>
@@ -690,9 +694,7 @@
 </template>
 
 <script>
-//import echarts from 'echarts'
 export default {
-    
     name:"estateDetails",
     data(){
         return{
@@ -708,7 +710,7 @@ export default {
         }
     },
     mounted(){
-        
+        $(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:5,trigger:"click"});
     },
     created(){
         this.axios.get(process.env.API_HOST+'secondhouse/Index/EstateDetails',{params:{id:this.$route.query.id}}).then((res) => {
@@ -725,7 +727,7 @@ export default {
 }
 
 $(function(){
-    //$(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:5,trigger:"click"});
+    
 
     $(".swiper_bot ul li:last").css("margin-right",0+"px")
 
@@ -817,75 +819,6 @@ $(function(){
          $(".erpop").slideUp().stop(true, true).css("overflow","visible");
     });
 })
-
-// $(function(){
-//     var dom = document.getElementById("pie");
-//     var myChart = echarts.init(dom);
-//     option = {
-//         tooltip: {
-//             trigger: 'item',
-//             formatter: "{a} <br/>{b}: {c} 万({d}%)"
-//         },
-//         color:['#e2574c','#9fd4f5','#f7e77a'],
-//         legend: {
-//             orient: 'vertical',
-//             x: 'left',
-//             y: 'center',
-//             data:['首付','贷款金额','偿还利息'],
-//         toolbox: {
-//             show : true,
-//             feature : {
-
-//                 saveAsImage : {show: true}
-//             }
-//         },
-//         calculable : true,
-
-//         },
-//         series: [
-//             {
-//                 name:'金额比例',
-//                 type:'pie',
-//                 radius: ['50%', '70%'],
-//                 avoidLabelOverlap: false,
-//                 label: {
-//                     normal: {
-//                         show: false,
-//                         position: 'center',
-//                         label : {
-//                             show : false
-//                         },
-//                         labelLine : {
-//                             show : false
-//                         }
-
-//                     },
-//                     emphasis: {
-//                         show: true,
-//                         textStyle: {
-//                             fontSize: '16',
-//                             fontWeight: 'bold'
-//                         }
-//                     }
-//                 },
-//                 labelLine: {
-//                     normal: {
-//                         show: false
-//                     }
-//                 },
-//                 data:[
-//                     {value:11, name:'首付'},
-//                     {value:95, name:'贷款金额'},
-//                     {value:8, name:'偿还利息'}
-//                 ]
-//             }
-//         ]
-//     };
-
-//     if (option && typeof option === "object") {
-//         myChart.setOption(option, true);
-//     }
-// })
 </script>
 
 <style scoped>
@@ -1168,9 +1101,6 @@ $(function(){
     line-height: 36px;
 }
 .estate_price1 span {
-    /* background-image: url(../images/Dw-up.png);
-    background-repeat: no-repeat;
-    background-position: left center; */
     padding-left: 18px;
 }
 .store .store-box-1 .rg .price .price2 {
@@ -1322,7 +1252,6 @@ $(function(){
     color: #666666;
     font-size: 14px;
     line-height: 37px;
-    /* background: url(../images/icon_bg.png) no-repeat; */
     width: 251px;
     height: 49px;
     display: none;
@@ -1842,7 +1771,6 @@ $(function(){
 }
 .store-box-6 .chaet_tit .h2_tit {
     display: inline-block;
-    /* background: url(../images/store_icon10.png) 0 center no-repeat; */
     padding-left: 20px;
     box-sizing: border-box;
 }
@@ -1926,7 +1854,6 @@ $(function(){
 #map .map_nav .map_nav_2 ul li .number {
     float: left;
     height: 65px;
-    /* background: url(../images/map_icon.png) center no-repeat; */
     width: 20px;
     text-align: center;
     margin-right: 10px;
@@ -1963,19 +1890,25 @@ $(function(){
 .store-box-5 .picScroll-left .next {
     position: absolute;
     width: 30px;
-    height: 165px;
-    /* background: rgba(0,0,0,0.6) url(../images/store_bnext.png) center no-repeat; */
+    height: 160px;
     background-color: rgba(0,0,0,0.6);
     right: 0;
     top: 0;
     display: block;
     z-index: 99;
 }
+.store-box-5 .picScroll-left .next img,.store-box-5 .picScroll-left .prev img{
+    position: absolute;
+    left:50%;
+    margin-left: -8px;
+    top:50%;
+    margin-top: -12px;
+    z-index: 10;
+}
 .store-box-5 .picScroll-left .prev {
     position: absolute;
     width: 30px;
-    height: 165px;
-    /* background: rgba(0,0,0,0.6) url(../images/store_bprev.png) center no-repeat; */
+    height: 160px;
     background-color: rgba(0,0,0,0.6);
     left: 0;
     top: 0;

@@ -1321,16 +1321,17 @@
     width: 100%;
 }
 .guide .guide_top {
+    margin: 30px auto 10px;
+}
+.guide .guide_top>div{
     font-size: 18px;
     color: #333;
-    margin: 30px auto 10px;
 }
 .guide .guide_top .more {
     font-size: 14px;
     color: #999;
 }
 .guide .guide_bot li a {
-    padding-left: 15px;
     font-size: 14px;
     color: #333;
     display: block;
@@ -1339,6 +1340,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 295px;
+}
+.guide .guide_bot li a::before{
+    display: inline-block;
+    content:'•';
+    margin-right: 10px;
+}
+.guide .guide_bot li a:hover{
+    color: #e93e0c;
 }
 .Dw-want {
     margin: 15px 0;
