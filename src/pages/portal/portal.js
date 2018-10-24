@@ -1,7 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import Home from './home.vue'
+import portal from './portal.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from "./router.js" // import router 的router 一定要小写， 不要写成Router, 否则报 can't match的报错
@@ -39,9 +39,9 @@ router.afterEach((to,from,next) => {
 
 /* eslint-disable no-new */
 new Vue({
-    el: '#home',
-    components: { Home },
+    el: '#portal',
+    components: { portal },
     router,
     store,
-    template: '<Home/>'
+    template: '<portal/>'
 })

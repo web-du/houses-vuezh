@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="portal">
     <page-header></page-header>
     <router-view></router-view>
     <page-footer></page-footer>
@@ -13,7 +13,7 @@ import pageHeader from '@/components/main/header'
 import pageFooter from '@/components/main/footer'
 import sidebar from '@/components/main/sidebar'
 export default {
-  name: 'home',
+  name: 'portal',
   components: {
     pageHeader,
     pageFooter,
