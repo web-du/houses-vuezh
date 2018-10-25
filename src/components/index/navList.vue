@@ -132,7 +132,7 @@ export default {
                         },
                         {
                             name: "购房知识",
-                            link: "portal.html#/handHouse/PurchaseKnowledge"
+                            link: "portal.html#/encyclopedias/propertyKnowledge"
                         },
                         {
                             name: "我要卖房",

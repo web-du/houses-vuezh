@@ -82,7 +82,7 @@ export default {
                 //获取总页面
                 this.pageTotal = response.data.data.total
                 //console.log(response.data.data)
-                console.log(this.knowledgeList)
+                console.log(response.data.data.data)
             }).catch((err) => {
                 console.log(err);
             })

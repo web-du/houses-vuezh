@@ -225,7 +225,7 @@ export default {
                         },
                         {
                             name: "热点专题",
-                            link: "/houseInfo/hotTopic"
+                            link: "houseInfo/hotTopic"
                         },
                         {
                             name: "市场",
