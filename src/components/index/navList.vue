@@ -230,15 +230,15 @@ export default {
                         },
                         {
                             name: "热点专题",
-                            link: "portal.html#/houseInfo/hotTopic"
+                            link: "portal.html#/houseInfo/hotTopic1"
                         },
                         {
                             name: "市场",
-                            link: "portal.html#/houseInfo/market"
+                            link: "portal.html#/houseInfo/bazaar"
                         },
                         {
                             name: "政策",
-                            link: "portal.html#/houseInfo/policy"
+                            link: "portal.html#/houseInfo/videos1"
                         }
                     ]
                 },

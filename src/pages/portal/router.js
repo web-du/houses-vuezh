@@ -341,18 +341,18 @@ const routes = [{
         component: (resolve) => require(['@/components/home/houseInfo/hotTopic1.vue'], resolve)
     },
     {
-        path: "/houseInfo/market",
+        path: "/houseInfo/bazaar",
         meta: {
             title: '市场'
         },
-        component: (resolve) => require(['@/components/home/houseInfo/market.vue'], resolve)
+        component: (resolve) => require(['@/components/home/houseInfo/bazaar.vue'], resolve)
     },
     {
-        path: "/houseInfo/policy",
+        path: "/houseInfo/videos1",
         meta: {
             title: '政策'
         },
-        component: (resolve) => require(['@/components/home/houseInfo/policy.vue'], resolve)
+        component: (resolve) => require(['@/components/home/houseInfo/videos1.vue'], resolve)
     },
     {
         path: "/houseInfo/infoDetail",

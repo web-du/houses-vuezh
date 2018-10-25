@@ -157,14 +157,14 @@
               duration:2000
             });
          },
-        subtxt(){
-            this.axios.post(process.env.API_HOST +'portal/Interlocution/postAnswer',{problem_id:this.$route.query.id,answer_content:this.answertxt,user_id:1}).then((response) => {      
-                console.log(response.data.data) 
-                this.open3()
-                    
-             }).catch((err) => {
-                
-            })
+          subtxt(){
+              this.axios.post(process.env.API_HOST +'portal/Interlocution/postAnswer',{problem_id:this.$route.query.id,answer_content:this.answertxt,user_id:1}).then((response) => {      
+                  console.log(response.data.data) 
+                  this.open3()
+                      
+              }).catch((err) => {
+                  
+              })
 
              this.axios.post(process.env.API_HOST +'/portal/Interlocution/getProblemDetail',{id:this.$route.query.id,page:1,size:10}).then((response) => {      
                 console.log(response.data.data)    

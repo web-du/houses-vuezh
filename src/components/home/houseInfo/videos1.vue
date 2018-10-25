@@ -49,8 +49,8 @@ export default {
             recruit:[],
             categoryList:[],
             categorynav:[],
-            categoryId:5,
-            componentId:"hotTopic",
+            categoryId:11,
+            componentId:"videos",
             tabList:[
                 {id:0,title:"首页"},
                 {id:1,title:"资讯"},
@@ -59,7 +59,7 @@ export default {
                 {id:4,title:"专题"},
                 {id:5,title:"视频"}
             ],
-            isclass:4
+            isclass:5
         }
     },
     components: {

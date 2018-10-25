@@ -285,7 +285,7 @@
                                          </router-link>
                                         <div class="houses_describe">
                                             <div class="header">
-                                                <a class="title" href="">{{item.b_name}}</a>
+                                                <router-link  class="title" :to="{path:'/shops/shopdetails', query:{id:item.id}}">{{item.b_name}}</router-link>
                                                 <span class="price fr"><span>{{item.b_price}}</span>&nbsp;<span>元/天</span>
                                                 <div class="clear"></div>
                                             </span></div>
