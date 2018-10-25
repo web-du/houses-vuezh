@@ -33,7 +33,7 @@ export default {
   },
   created(){
       if(localStorage.userInfor){
-        console.log(1);
+        //console.log(1);
         this.$store.dispatch('setIsLogin',true);
         this.$store.dispatch('setUserInfor',JSON.parse(localStorage.userInfor));
       }

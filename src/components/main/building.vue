@@ -167,6 +167,7 @@ export default {
 
 .houses_info {
     width: 590px;
+    display: block;
 }
 
 .lfet_content > li {

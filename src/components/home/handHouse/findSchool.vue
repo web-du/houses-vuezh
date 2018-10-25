@@ -1,11 +1,11 @@
 <template>
-    <div id="onSale">
+    <div id="findschool">
         <div class="crumbsSearch">
             <div class="content">
                 <div class="crumbs"><a href="">房乐士</a> &gt; <a href="">房产资讯</a> &gt; <span>资讯</span></div>
                 <div class="search">
                     <input placeholder="楼盘搜索">
-                    <div class="to-search">
+                    <div class="to-search" @click="search()">
                         <input type="submit"  class="btn">
                         <img src="@/assets/images/searcj.png" >
                     </div>
@@ -117,113 +117,25 @@
                                 </div>
                             </div>
                         </li>
-
-                        <li class="clearfix">
-                            <h2 class="tTit" title="">价格</h2>
-                            <div class="tCon clearfix">
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300-400万</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300-400万</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300-400万</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300-400万</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300-400万</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300-400万</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300-400万</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>400万以上</a>
-                                <div class="custom">
-                                <input type="text" name="">-<input type="text" name=""><span>确定</span></div>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-
-                        <li class="clearfix">
-                            <h2 class="tTit" title="">面积</h2>
+                        <li>
+                            <h2 class="tTit" title="">类别:</h2>
                             <div class="tCon">
                                 <a href="" rel="nofollow">
-                                <span class="inputSty "></span>50㎡以下</a>
+                                <span class="inputSty "></span>幼儿园</a>
                                 <a href="" rel="nofollow">
-                                <span class="inputSty "></span>50㎡-100㎡</a>
+                                <span class="inputSty "></span>小学</a>
                                 <a href="" rel="nofollow">
-                                <span class="inputSty "></span>100㎡-150㎡</a>
+                                <span class="inputSty "></span>初中</a>
                                 <a href="" rel="nofollow">
-                                <span class="inputSty "></span>150㎡-200㎡</a>
+                                <span class="inputSty "></span>九年制（小+初）</a>
                                 <a href="" rel="nofollow">
-                                <span class="inputSty "></span>200㎡-300㎡</a>
+                                <span class="inputSty "></span>完中（初+高）</a>
                                 <a href="" rel="nofollow">
-                                <span class="inputSty "></span>300㎡-500㎡</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>500㎡以上</a>
-                                <div class="custom">
-                                <input type="text" name="">-<input type="text" name=""><span>确定</span></div>
+                                <span class="inputSty "></span>大学</a>
                                 <div class="clear"></div>
                             </div>
                             <div class="clear"></div>
                         </li>
-
-                        <li class="clearfix">
-                            <h2 class="tTit" title="">户型</h2>
-                            <div class="tCon">
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>一居</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>二居</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>三居</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>四居</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>五居</a>
-                                <a href="" rel="nofollow">
-                                <span class="inputSty "></span>五居以上</a>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-
-                        <li class="clearfix">
-                            <h2 class="tTit" title="">更多条件</h2>
-                            <div class="select_c">
-                                <div class="select_zhuzhai fl">
-                                    <select name="" id="">
-                                        <option value="">类型</option>
-                                        <option value="">住宅</option>
-                                        <option value="">别墅</option>
-                                        <option value="">写字楼</option>
-                                        <option value="">商铺</option>
-                                        <option value="">综合体</option>
-                                    </select>
-                                    <img src="@/assets/images/down_icon.png" >
-                                </div>
-                                <div class="select_zhuzhai fl">
-                                    <select name="" id="">
-                                        <option value="">售卖</option>
-                                        <option value="">在售楼盘</option>
-                                        <option value="">代售楼盘</option>
-                                        <option value="">售完楼盘</option>
-                                    </select>
-                                    <img src="@/assets/images/down_icon.png" >
-                                </div>
-                                <div class="select_zhuzhai fl">
-                                    <select name="" id="">
-                                        <option value="">特色</option>
-                                        <option value="">小户型</option>
-                                        <option value="">低总价</option>
-                                    </select>
-                                    <img src="@/assets/images/down_icon.png" >
-                                </div>
-                                <div class="supurt fl">支持房聊</div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-
                         <li class="clearfix">
                             <h2 class="tTit" title="">当前条件</h2>
                             <div class="chioce_result clearfix">
@@ -254,26 +166,17 @@
                 <div class="part clearfix">
                     <div class="part_left">
                         <ul class="nhouse_list_nav clearfix" ctm-data="list_type" style="position: relative;">
-                            <li id="" :class="{on : currentIndex == -1 }"><a id="allUrl" href="" @click.stop.prevent="All()">全部房源<span>({{Total}})</span></a></li>
-                            <li id="" v-for="(item,index) in Tags_name" :key="index" :class="{ on : currentIndex == index}"><a href="" @click.prevent = "Switch(item.id,index)">{{item.tags_name}}<span>({{item.total}})</span></a></li>
+                            <li id="" :class="{on : currentIndex == -1 }"><a id="allUrl" href="" @click.stop.prevent="All()">全部学校<span>(25)</span></a></li>
                             <li class="floatr rankWrap">
                                 <div class="rankBox">
                                     <ul class="clearfix">
                                         <li><a id="sjina_C01_33" name="order_default" href="" class="cur">默认排序</a></li>
-                                        <li><a id="sjina_C01_33_05" name="order_price" href=""><span>价格</span><i><img src="@/assets/images/dzlp2.png" ></i></a></li>
+                                        <li><a id="sjina_C01_33_05" name="order_price" href=""><span>学校名称</span><i><img src="@/assets/images/dzlp2.png" ></i></a></li>
                                         <li class="arrow_down">
                                             <a id="sjina_C01_33_03" name="order_dpcount" href="">
-                                                <span>点评</span>
+                                                <span>房源数量</span>
                                                 <i>
                                                     <img src="@/assets/images/dzlp3.png" >
-                                                </i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a id="sjina_C01_33_04" name="order_sale" href="">
-                                                <span>开盘时间</span>
-                                                <i>
-                                                    <img src="@/assets/images/dzlp2.png" >
                                                 </i>
                                             </a>
                                         </li>
@@ -281,59 +184,223 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="houses_list houses_list2">
+                        <div class="houses_list">
                             <ul>
-                                <li v-for="(item,index) in saleHouse" :key="index">
-                                    <router-link :to="{path:'/handHouse/handHousedetail',query:{id:item.id}}">
-                                        <div class="houses_info">
-                                            <a class="houses_img" href="">
-                                                <img src="@/assets/images/houses.jpg" width="100%">
-                                                <div class="houses_img_info">
-                                                    <ul>
-                                                        <li>
-                                                            <img src="@/assets/images/img.png" width="100%">
-                                                            <span>23</span>
-                                                        </li>
-                                                        <li>
-                                                            <img src="@/assets/images/3d.png" width="100%">
-                                                            <span>1</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <span class="houses_type">直销</span>
-                                            </a>
-                                            <div class="houses_describe">
-                                                <div class="header">
-                                                    <a class="title" href="">{{item.house_title}}</a>
-                                                    <span class="price fr"><span>9000</span>&nbsp;<span>万/套</span>
-                                                    <div class="clear"></div>
-                                                </span></div>
-                                                <div class="addr">
-                                                    <img src="@/assets/images/dzlp8.png" width="100%">
-                                                    <span>{{item.b_name}}</span>
-                                                    <div class="tel fr">单价{{item.house_price}}元/㎡</div>
-                                                    <div class="clear"></div>
-                                                </div>
-                                                <div class="addr">
-                                                    <img src="@/assets/images/addr.png" width="100%">
-                                                    <span>{{item.area}}</span>
-                                                </div>
-                                                <div class="addr">
-                                                    <img src="@/assets/images/jjr3.png" width="100%">
-                                                    <span>{{ item.create_time | Release }}</span>
-                                                </div>
-                                                <div class="houses_label">
-                                                    <ul class="fl">
-                                                        <li>随时看房</li>
-                                                        <li>南北通透</li>
-                                                        <li>黄金楼层</li>
-                                                    </ul>
-                                                    <div class="clear"></div>
-                                                </div>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <span class="price fr"><span>58</span>&nbsp;<span>万/套</span>
+                                                <div class="clear"></div>
+                                            </span></div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="clear"></div>
                                             </div>
-
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
                                         </div>
-                                    </router-link>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="tel fr"><img src="@/assets/images/dzlp10.png">68185824</div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="tel fr"><img src="@/assets/images/dzlp10.png">68185824</div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="tel fr"><img src="@/assets/images/dzlp10.png">68185824</div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="tel fr"><img src="@/assets/images/dzlp10.png">68185824</div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="tel fr"><img src="@/assets/images/dzlp10.png">68185824</div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="tel fr"><img src="@/assets/images/dzlp10.png">68185824</div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="houses_info">
+                                        <a class="houses_img" href="">
+                                            <img src="@/assets/images/fylb.jpg" width="100%">
+                                        </a>
+                                        <div class="houses_describe">
+                                            <div class="header">
+                                                <a class="title" href="">孝感十一中</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/dzlp20.jpg" width="100%">
+                                                <span>完中（初中+高中） </span>
+                                                <div class="tel fr"><img src="@/assets/images/dzlp10.png">68185824</div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="addr">
+                                                <img src="@/assets/images/addr.png" width="100%">
+                                                <span>东湖高新区梧桐湖酒店</span>
+                                            </div>
+                                            <div class="dw-num">
+                                                <span>全部房源(<em>101</em>)</span>
+                                                <span>周边小区(<em>101</em>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                             <div class="more_box">
@@ -354,147 +421,6 @@
                     </div>
 
                     <div class="part_right">
-                        <!-- <div class="enroll">
-                            <h3 class="title">已享受房乐士直通车VIP服务</h3>
-                            <span class="num"><span>702、301</span> 人次</span>
-                            <a class="btn" href="javascript:void(0)">立刻报名</a>
-                        </div> -->
-                        <div class="guide">
-                            <div class="guide_top clearfix">
-                                <div class="fl">二手房资讯</div>
-                                <a href="" class="more fr">更多</a>
-                            </div>
-                            <ul class="guide_bot">
-                            <li><a href="">孝感大菜市场完成改造已对外开对外开放开放开</a></li>
-                            <li><a href="">孝感大菜市场完成改造已对外开对外开放开放开</a></li>
-                            <li><a href="">孝感大菜市场完成改造已对外开对外开放开放开</a></li>
-                            <li><a href="">孝感大菜市场完成改造已对外开对外开放开放开</a></li>
-                            <li><a href="">孝感大菜市场完成改造已对外开对外开放开放开</a></li>
-                            <li><a href="">孝感大菜市场完成改造已对外开对外开放开放开</a></li>
-                            <li><a href="">孝感大菜市场完成改造已对外开对外开放开放开</a></li>
-                            </ul>
-                        </div>
-                        <div class="Dw-want">
-                            <div class="nav clearfix">
-                                <span class="fl now">我要找房</span>
-                                <span class="fl">我要卖房</span>
-                            </div>
-                            <ul>
-                                <li>
-                                <p>已有<em>70</em>万业主选择房乐士</p>
-                                <span><a href="#">我要找房</a></span>
-                                </li>
-                                <li style="display:none;"></li>
-                            </ul>
-                        </div>
-                        <div class="guide">
-                            <div class="guide_top clearfix">
-                                <div class="fl">特价房</div>
-                                <a href="" class="more fr">更多</a>
-                            </div>
-                            <ul class="special_house_list">
-                                <li>
-                                    <div class="special_house_img">
-                                        <a href="" class="img"><img src="@/assets/images/special_house.jpg" width="100%"></a>
-                                        <div class="price_reduction">
-                                            <ul>
-                                                <li class="title">
-                                                    <span>降</span>
-                                                    <img src="@/assets/images/price_reduction.png" width="100%">
-                                                </li>
-                                                <li>
-                                                    <span class="range">13.3万</span>
-                                                </li>
-                                            </ul>
-                                            <span class="triangle"></span>
-                                        </div>
-                                    </div>
-                                    <div class="special_house_detail">
-                                        <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                        <ul>
-                                            <li>市场价: 105.76 万元/套</li>
-                                            <li>活动价:&nbsp;<span>9091</span>&nbsp; 万元/套</li>
-                                            <li>建面: 93.92 ㎡</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="special_house_img">
-                                        <a href="" class="img"><img src="@/assets/images/special_house.jpg" width="100%"></a>
-                                        <div class="price_reduction">
-                                            <ul>
-                                                <li class="title">
-                                                    <span>降</span>
-                                                    <img src="@/assets/images/price_reduction.png" width="100%">
-                                                </li>
-                                                <li>
-                                                    <span class="range">13.3万</span>
-                                                </li>
-                                            </ul>
-                                            <span class="triangle"></span>
-                                        </div>
-                                    </div>
-                                    <div class="special_house_detail">
-                                        <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                        <ul>
-                                            <li>市场价: 105.76 万元/套</li>
-                                            <li>活动价:&nbsp;<span>9091</span>&nbsp; 万元/套</li>
-                                            <li>建面: 93.92 ㎡</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="special_house_img">
-                                        <a href="" class="img"><img src="@/assets/images/special_house.jpg" width="100%"></a>
-                                        <div class="price_reduction">
-                                            <ul>
-                                                <li class="title">
-                                                    <span>降</span>
-                                                    <img src="@/assets/images/price_reduction.png" width="100%">
-                                                </li>
-                                                <li>
-                                                    <span class="range">13.3万</span>
-                                                </li>
-                                            </ul>
-                                            <span class="triangle"></span>
-                                        </div>
-                                    </div>
-                                    <div class="special_house_detail">
-                                        <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                        <ul>
-                                            <li>市场价: 105.76 万元/套</li>
-                                            <li>活动价:&nbsp;<span>9091</span>&nbsp; 万元/套</li>
-                                            <li>建面: 93.92 ㎡</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="special_house_img">
-                                        <a href="" class="img"><img src="@/assets/images/special_house.jpg" width="100%"></a>
-                                        <div class="price_reduction">
-                                            <ul>
-                                                <li class="title">
-                                                    <span>降</span>
-                                                    <img src="@/assets/images/price_reduction.png" width="100%">
-                                                </li>
-                                                <li>
-                                                    <span class="range">13.3万</span>
-                                                </li>
-                                            </ul>
-                                            <span class="triangle"></span>
-                                        </div>
-                                    </div>
-                                    <div class="special_house_detail">
-                                        <a href="" class="title">[南昌] 中国铁建青秀城</a>
-                                        <ul>
-                                            <li>市场价: 105.76 万元/套</li>
-                                            <li>活动价:&nbsp;<span>9091</span>&nbsp; 万元/套</li>
-                                            <li>建面: 93.92 ㎡</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="interlocution">
                             <div class="tabbar">
                                 <a href="javascript:void(0)" class="active">买房技巧</a>
@@ -574,59 +500,18 @@
             }
         },
         methods:{
-            All(){
-               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist').then((response) => {
-                    //console.log(response.data.data);
-                    this.saleHouse = response.data.data.data;
-                    this.currentIndex = -1;
-                    console.log(response)
-                }).catch((err) => {
-                    console.log(err);
-                })
-            },
-            Switch(data,index){
-                this.currentIndex = index;
-               this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:10,house_tags:data}).then((response) => {
-                    //console.log(response.data.data);
-                    this.saleHouse = response.data.data.data;
-                    console.log(this.saleHouse)
-                }).catch((err) => {
-                    console.log(err);
-                })
+            search(){
+                this.$router.push({path:'/handHouse/findSchoolDetails'})
             }
         },
         filters:{
-            Release:function(value){
-                return value + "发布";
-            }
+            
         },
         computed:{
-            //获取房源列表的总数
-            Total:function(){
-                return this.Tags_name.reduce((acc,cur)=>{
-                    return acc + cur.total;
-                },0);
-                
-            }
+            
         },
         created(){
-            //获取二手房房源列表
-           this.axios.post(process.env.API_HOST+'secondhouse/Index/getsecondhouselist',{page:1,size:10}).then((response) => {
-                //console.log(response.data.data);
-                this.saleHouse = response.data.data.data;
-                console.log(this.saleHouse)
-            }).catch((err) => {
-                console.log(err);
-            })
-
-
-            //获取二手房房源标签
-           this.axios.post(process.env.API_HOST + 'secondhouse/Index/getHouseTags').then((res) =>{
-                //console.log(res.data.data);
-                this.Tags_name = res.data.data;
-            }).catch((err) => {
-                console.log(err);
-            })
+            
             
         },
         mounted(){
@@ -1064,14 +949,6 @@
     padding: 0 10px;
     position: relative;
 }
-.nhouse_list_nav .rankBox li a i{
-    position: absolute;
-    width: 10px;
-    height: 12px;
-    right:0;
-    top:50%;
-    margin-top:-6px;
-}
 .nhouse_list_nav .rankBox li a i img{
     display: block;
     width: 10px;
@@ -1169,10 +1046,6 @@
 .houses_describe {
     width: 590px;
 }
-.houses_list2 .houses_describe .header {
-    justify-content: flex-start;
-    display: block;
-}
 .houses_describe .header {
     height: 24px;
     display: flex;
@@ -1196,10 +1069,7 @@
     color: #e93e0c;
     line-height: 20px;
 }
-.houses_list2 .houses_describe .addr {
-    display: block;
-}
-.houses_list2 .houses_describe .addr img {
+.houses_list .houses_describe .addr img {
     margin-top: 0;
     vertical-align: middle;
     margin-right: 8px;
@@ -1209,11 +1079,11 @@
     font-size: 14px;
     color: #666;
 }
-.houses_list2 .houses_describe .addr .tel {
+.houses_list .houses_describe .addr .tel {
     font-size: 14px;
     color: #666;
 }
-.houses_list2 .houses_label {
+.houses_list .houses_label {
     padding-bottom: 20px;
 }
 .houses_label {
@@ -1230,7 +1100,7 @@
     margin-right: 10px;
     font-size: 14px;
 }
-.houses_list2 .houses_label ul li {
+.houses_list .houses_label ul li {
     padding: 4px 10px;
 }
 .houses_label ul li:nth-child(1) {
@@ -1497,9 +1367,28 @@
     line-height: 30px;
 }
 .houses_describe .addr {
-    display: flex;
-    height: 15px;
+    display: block;
+    height: 20px;
     align-items: center;
     margin-top: 15px;
+}
+.houses_describe .dw-num{
+    margin-top:15px;
+}
+.houses_describe .dw-num span:last-child {
+    margin-right: 0;
+}
+.houses_describe .dw-num span {
+    font-size: 14px;
+    color: #666;
+    margin-right: 35px;
+}
+.houses_describe .dw-num span em {
+    color: #e93e0c;
+}
+.houses_list .houses_describe .addr .tel img {
+    width: 22px;
+    vertical-align: middle;
+    margin: -5px 13px 0 0;
 }
 </style>

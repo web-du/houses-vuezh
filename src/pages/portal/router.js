@@ -131,6 +131,13 @@ const routes = [{
         component: (resolve) => require(['@/components/home/handHouse/findSchool.vue'], resolve)
     },
     {
+        path: "/handHouse/findSchoolDetails",
+        meta: {
+            title: '学校搜索详情'
+        },
+        component: (resolve) => require(['@/components/home/handHouse/findSchoolDetails.vue'], resolve)
+    },
+    {
         path: "/handHouse/findAgent",
         meta: {
             title: '找经纪人'

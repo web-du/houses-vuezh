@@ -56,7 +56,7 @@ export default {};
 <style scoped>
 #helpFindHouse {
     padding: 0 19px 30px;
-    width: 272px;
+    width:320px;
     background: #f1f1f1;
     margin-top: 25px;
 }
@@ -77,7 +77,7 @@ export default {};
 #helpFindHouse .form .form_line .down_img {
     position: absolute;
     top: 15px;
-    right: 10px;
+    right: 20px;
     width: 10px;
     height: 5px;
 }

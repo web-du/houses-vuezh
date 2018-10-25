@@ -21,9 +21,9 @@
             </li>
         </ul>
         <div class="menu">
-            <a href="home.html#/login" v-show="!isLogin">登录</a>
-            <a href="home.html#/personal/personalCenter" v-show="isLogin">{{userInfor.mobile}}</a>
-            <a href="home.html#/register" v-show="!isLogin" >注册</a>
+            <a href="portal.html#/login" v-show="!isLogin">登录</a>
+            <a href="portal.html#/personal/personalCenter" v-show="isLogin">{{userInfor.mobile}}</a>
+            <a href="portal.html#/register" v-show="!isLogin" >注册</a>
             <a @click="logout()" href="" v-show="isLogin">退出</a>
         </div>
     </div>
@@ -37,206 +37,206 @@ export default {
             navlist: [
                 {
                     node: "新房",
-                    link: 'home.html#/newHouses',
+                    link: 'portal.html#/newHouses',
                     childNode: [
                         {
                             name: "特价房",
-                            link: "home.html#/newHouse/special"
+                            link: "portal.html#/newHouse/special"
                         },
                         {
                             name: "本月开盘",
-                            link: "home.html#/newHouse/curMonthHouses"
+                            link: "portal.html#/newHouse/curMonthHouses"
                         },
                         {
                             name: "房乐士直销",
-                            link: "home.html#/newHouse/directSale"
+                            link: "portal.html#/newHouse/directSale"
                         },
                         {
                             name: "本月交房",
-                            link: "home.html#/newHouse/curMonthHouse"
+                            link: "portal.html#/newHouse/curMonthHouse"
                         },
                         {
                             name: "楼盘新动态",
-                            link: "home.html#/newHouse/housesNewTrends"
+                            link: "portal.html#/newHouse/housesNewTrends"
                         },
                         {
                             name: "热门楼盘",
-                            link: "home.html#/newHouse/hotHouses"
+                            link: "portal.html#/newHouse/hotHouses"
                         },
                         {
                             name: "打折楼盘",
-                            link: "home.html#/newHouse/discountHouses"
+                            link: "portal.html#/newHouse/discountHouses"
                         },
                         {
                             name: "楼盘导购",
-                            link: "home.html#/newHouse/housesGuide"
+                            link: "portal.html#/newHouse/housesGuide"
                         },
                         {
                             name: "购房知识",
-                            link: "home.html#/newHouse/purchaseKnowledge"
+                            link: "portal.html#/newHouse/purchaseKnowledge"
                         },
                         {
                             name: "学区房",
-                            link: "home.html#/newHouse/schoolDistrictHouse"
+                            link: "portal.html#/newHouse/schoolDistrictHouse"
                         },
                         {
                             name: "新房排行榜",
-                            link: "home.html#/newHouse/newHouseRankingList"
+                            link: "portal.html#/newHouse/newHouseRankingList"
                         },
                         {
                             name: "看房团",
-                            link: "home.html#/newHouse/condoTour"
+                            link: "portal.html#/newHouse/condoTour"
                         },
                         {
                             name: "帮你找房",
                             type: "btn",
-                            link: "home.html#/newHouse/helpYouFindHouse"
+                            link: "portal.html#/newHouse/helpYouFindHouse"
                         }
                     ]
                 },
                 {
                     node: "二手房",
-                    link: 'home.html#/handHouse/onSaleHouse',
+                    link: 'portal.html#/handHouse/onSaleHouse',
                     childNode: [
                         {
                             name: "在售房源",
-                            link: "home.html#/handHouse/onSaleHouse"
+                            link: "portal.html#/handHouse/onSaleHouse"
                         },
                         {
                             name: "优选房源",
-                            link: "home.html#/handHouse/preference"
+                            link: "portal.html#/handHouse/preference"
                         },
                         {
                             name: "找小区",
-                            link: "home.html#/handHouse/findVillage"
+                            link: "portal.html#/handHouse/findVillage"
                         },
                         {
                             name: "找学校",
-                            link: "home.html#/handHouse/findSchool"
+                            link: "portal.html#/handHouse/findSchool"
                         },
                         {
                             name: "找经济人",
-                            link: "home.html#/handHouse/findAgent"
+                            link: "portal.html#/handHouse/findAgent"
                         },
                         {
                             name: "找别墅",
-                            link: "home.html#/handHouse/findVilla"
+                            link: "portal.html#/handHouse/findVilla"
                         },
                         {
                             name: "查成交",
-                            link: "home.html#/handHouse/CheckAdeal"
+                            link: "portal.html#/handHouse/CheckAdeal"
                         },
                         {
                             name: "二手房排行榜",
-                            link: "home.html#/handHouse/handHouseRanking"
+                            link: "portal.html#/handHouse/handHouseRanking"
                         },
                         {
                             name: "购房知识",
-                            link: "home.html#/handHouse/PurchaseKnowledge"
+                            link: "portal.html#/handHouse/PurchaseKnowledge"
                         },
                         {
                             name: "我要卖房",
                             type: "btn",
-                            link: "home.html#/handHouse/SellingHouse"
+                            link: "portal.html#/handHouse/SellingHouse"
                         }
                     ]
                 },
                 {
                     node: "商铺",
-                    link: 'home.html#/shops/shopRental',
+                    link: 'portal.html#/shops/shopRental',
                     childNode: [
                         {
                             name: "商铺出租",
-                            link: "home.html#/shops/shopRental"
+                            link: "portal.html#/shops/shopRental"
                         },
                         {
                             name: "商铺出售",
-                            link: "home.html#/shops/shopSale"
+                            link: "portal.html#/shops/shopSale"
                         },
                         {
                             name: "商铺新盘",
-                            link: "home.html#/shops/newShops"
+                            link: "portal.html#/shops/newShops"
                         },
                         {
                             name: "我要卖铺",
                             type: "btn",
-                            link: "home.html#/shops/sellShops   "
+                            link: "portal.html#/shops/sellShops   "
                         }
                     ]
                 },
                 {
                     node: "租房",
-                    link: 'home.html#/renting/rentingSource',
+                    link: 'portal.html#/renting/rentingSource',
                     childNode: [
                         {
                             name: "在租房源",
-                            link: "home.html#/renting/rentingSource"
+                            link: "portal.html#/renting/rentingSource"
                         },
                         {
                             name: "品牌公寓",
-                            link: "home.html#/renting/brandApartment"
+                            link: "portal.html#/renting/brandApartment"
                         },
                         {
                             name: "个人房源",
-                            link: "home.html#/renting/personalSource"
+                            link: "portal.html#/renting/personalSource"
                         },
                         {
                             name: "整租房源",
-                            link: "home.html#/renting/fullRent"
+                            link: "portal.html#/renting/fullRent"
                         },
                         {
                             name: "合租房源",
-                            link: "home.html#/renting/jointRent"
+                            link: "portal.html#/renting/jointRent"
                         },
                         {
                             name: "别墅房源",
-                            link: "home.html#/renting/villasSource"
+                            link: "portal.html#/renting/villasSource"
                         },
                         {
                             name: "租房知识",
-                            link: "home.html#/renting/rentingKnowledge"
+                            link: "portal.html#/renting/rentingKnowledge"
                         },
                         {
                             name: "求租",
-                            link: "home.html#/renting/renting"
+                            link: "portal.html#/renting/renting"
                         },
                         {
                             name: "免费发布出租",
                             type: "btn",
-                            link: "home.html#/renting/freeRental"
+                            link: "portal.html#/renting/freeRental"
                         }
                     ]
                 },
                 {
                     node: "查房价",
-                    link: "home.html#/checkHousePrices/checkHousePrices",
+                    link: "portal.html#/checkHousePrices/checkHousePrices",
                     childNode: []
                 },
                 {
                     node: "房产资讯",
-                    link: "home.html#/houseInfo/newsFlash",
+                    link: "portal.html#/houseInfo/newsFlash",
                     childNode: [
                         {
                             name: "房产快讯",
-                            link: "home.html#/houseInfo/newsFlash"
+                            link: "portal.html#/houseInfo/newsFlash"
                         },
                         {
                             name: "热点专题",
-                            link: "home.html#/houseInfo/hotTopic"
+                            link: "portal.html#/houseInfo/hotTopic"
                         },
                         {
                             name: "市场",
-                            link: "home.html#/houseInfo/market"
+                            link: "portal.html#/houseInfo/market"
                         },
                         {
                             name: "政策",
-                            link: "home.html#/houseInfo/policy"
+                            link: "portal.html#/houseInfo/policy"
                         }
                     ]
                 },
                 {
                     node: "房产百科",
-                    link: "home.html#/encyclopedias/propertyKnowledge",
+                    link: "portal.html#/encyclopedias/propertyKnowledge",
                     childNode: [
                         {
                             name: "房产知识",
@@ -246,16 +246,16 @@ export default {
                 },
                 {
                     node: "房产问答",
-                    link: "home.html#/interlocution/interlocution",
+                    link: "portal.html#/interlocution/interlocution",
                     childNode: []
                 },
                 {
                     node: "更多",
-                    link: "home.html#/more/vrPanoramicView",
+                    link: "portal.html#/more/vrPanoramicView",
                     childNode: [
                         {
                             name: "VR全景看房",
-                            link: "home.html#/more/vrPanoramicView"
+                            link: "portal.html#/more/vrPanoramicView"
                         }
                     ]
                 }
@@ -293,7 +293,7 @@ export default {
             this.$store.dispatch('setUserInfor',{});
 
             //跳转至登陆页面
-            window.location.href="home.html#/login";
+            window.location.href="portal.html#/login";
         }
     }
 };
