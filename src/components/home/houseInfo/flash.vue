@@ -50,7 +50,7 @@ export default {
             categoryList:[],
             categorynav:[],
             categoryId:1,
-            componentId:"index",
+            componentId:"infoList",
             tabList:[
                 {id:0,title:"首页"},
                 {id:1,title:"资讯"},
@@ -59,7 +59,7 @@ export default {
                 {id:4,title:"专题"},
                 {id:5,title:"视频"}
             ],
-            isclass:0
+            isclass:1
         }
     },
     components: {

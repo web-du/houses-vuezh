@@ -320,18 +320,18 @@ const routes = [{
         component: (resolve) => require(['@/components/home/checkHousePrices/checkHousePrices.vue'], resolve)
     },
     {
-        path: "/houseInfo/newsFlash",
+        path: "/houseInfo/flash",
         meta: {
             title: '房产快讯'
         },
-        component: (resolve) => require(['@/components/home/houseInfo/newsFlash.vue'], resolve)
+        component: (resolve) => require(['@/components/home/houseInfo/flash.vue'], resolve)
     },
     {
         path: "/houseInfo/hotTopic",
         meta: {
             title: '热点专题'
         },
-        component: (resolve) => require(['@/components/home/houseInfo/hotTopic.vue'], resolve)
+        component: (resolve) => require(['@/components/home/houseInfo/newsFlash.vue'], resolve)
     },
     {
         path: "/houseInfo/market",

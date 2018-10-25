@@ -221,11 +221,11 @@ export default {
                     childNode: [
                         {
                             name: "房产快讯",
-                            link: "houseInfo/newsFlash"
+                            link: "houseInfo/flash"
                         },
                         {
                             name: "热点专题",
-                            link: "houseInfo/hotTopic"
+                            link: "/houseInfo/hotTopic"
                         },
                         {
                             name: "市场",

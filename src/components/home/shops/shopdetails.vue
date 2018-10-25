@@ -80,7 +80,7 @@
                                                     <div class="bot_view">
                                                         <ul>
                                                             <li v-for="(item,index) in recruit.b_imgs" :key="index">
-                                                              <img :src="item[index]" alt="">
+                                                              <img :src="item" alt="">
                                                            </li>
                                                         
 

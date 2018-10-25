@@ -1,5 +1,10 @@
 <template>
     <div id="interlocution">
+       <!-- <el-button
+        plain
+        @click="open3">
+        成功
+     </el-button> -->
       <div class="header-nav">
         <div class="box clearfix">
             <div class="nav fl">
@@ -88,7 +93,7 @@
         name:"interlocutiondetalis",
         data(){
             return{
-              answerid:this.$route.query.id,
+              answerid:this.$route.query.id*1,
               componentId:"interlocutionrelevan",
               recruit:[],
               tabbarlist:[
@@ -105,7 +110,7 @@
         },
         created(){
               this.axios.post(process.env.API_HOST +'/portal/Interlocution/getProblemDetail',{id:this.$route.query.id,page:1,size:10}).then((response) => {      
-                console.log(response.data.data)    
+        
                  this.recruit=response.data.data
                 //  this.recruit.forEach((item) => {
                 //       if(item.children.length>0){
@@ -144,11 +149,29 @@
             })
             }
         },
+         open3() {
+            this.$notify({
+              title: '提交成功',
+              // message: '这是一条成功的提示消息',
+              type: 'success',
+              duration:2000
+            });
+         },
         subtxt(){
-            this.axios.post(process.env.API_HOST +'api/portal/Interlocution/postAnswer',{problem_id:this.$route.query.id,answer_content:this.answertxt,user_id:1}).then((response) => {      
-                console.log(response.data.data)    
+            this.axios.post(process.env.API_HOST +'portal/Interlocution/postAnswer',{problem_id:this.$route.query.id,answer_content:this.answertxt,user_id:1}).then((response) => {      
+                console.log(response.data.data) 
+                this.open3()
                     
              }).catch((err) => {
+                
+            })
+
+             this.axios.post(process.env.API_HOST +'/portal/Interlocution/getProblemDetail',{id:this.$route.query.id,page:1,size:10}).then((response) => {      
+                console.log(response.data.data)    
+                 this.recruit=response.data.data
+              
+                
+              }).catch((err) => {
                 
             })
         }

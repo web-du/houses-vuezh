@@ -10,15 +10,17 @@
             </div>
             <div class="list">
                 <ul>
-                    <li v-for="(item,index) in cost.child" :key="index">
+                    <li v-for="(item,index) in cost.child" :key="index">                       
                         <div>
-                            <div class="video">
-                                <img :src="item.thumbnail" width="100%" />
-                                <span class="duration">06:29</span>
-                            </div>
-                            <h3>{{item.post_content}}</h3>
-                            <span class="time">时间: {{item.create_time}}</span>
-                        </div>
+                            <router-link :to="{ path: '/houseInfo/infoDetail',query:{id:item.id}}">
+                                <div class="video">
+                                    <img :src="item.thumbnail" width="100%" />
+                                    <span class="duration">06:29</span>
+                                </div>
+                                <h3>{{item.post_content}}</h3>
+                                <span class="time">时间: {{item.create_time}}</span>
+                            </router-link>
+                        </div>                   
                     </li>
                 </ul>
             </div>

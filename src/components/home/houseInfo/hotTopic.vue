@@ -11,17 +11,19 @@
             <div class="content">
                 <ul>
                     <li v-for="(item,index) in cost.child" :key="index">
+                       <router-link :to="{ path: '/houseInfo/infoDetail',query:{id:item.id}}">
                         <div>
                             <div class="img">
                                 <img :src="item.thumbnail" width="100%" />
                                 <span>{{item.post_title}}</span>
                             </div>
-                            <p class="small_title"> {{item.post_content}}<a href="javascript(void)"></a></p>
+                             <p class="small_title"> {{item.post_content}}<a href="javascript(void)"></a></p>
                             <div class="source">
                                 <span>来源：{{item.post_source}}</span>
                                 <span>时间： {{item.update_time}}</span>
                             </div>
                         </div>
+                       </router-link>
                     </li>
                 </ul>
             </div>
@@ -179,7 +181,7 @@ export default {
             infoList:[],
         };
     },
-    mounted(){
+    created(){
         this.axios.post(process.env.API_HOST +'commonality/message/message_list',{id:this.nowId}).then((response) => {
             this.infoList=response.data.data
         

@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="sec-house-details w1200">
-            <div class="top-nav">
+            <!-- <div class="top-nav">
                 <ul>
                     <li><a href="">房源信息</a></li>
                     <li><a href="">小区详情</a></li>
@@ -29,7 +29,7 @@
                     <div class="clear">
                     </div>
                 </ul>
-            </div>
+            </div> -->
            <div class="house-details">
                 <div class="img-box fl">
                         <div class="xqcase_box">
@@ -57,7 +57,7 @@
                                 <div class="bot_view">
                                     <ul>
                                         <li v-for="(item,index) in recruit.b_imgs" :key="index">
-                                            <img :src="item[index]" alt="">
+                                            <img :src="item" alt="">
                                         </li>
                                     
 
@@ -405,7 +405,7 @@
                           <div class="house-infor">
                              <h2>同小区出租房源</h2>
                               <div class="rent">
-                                 <div class="rent-box" v-for="(item,index) in recruit.near_shangpu" :key="index">
+                                 <div class="rent-box" v-if="index<=3" v-for="(item,index) in recruit.near_shangpu" :key="index">
                                     <a href="" class="img">
                                       <img :src="item.house_thumb" alt="">
                                     </a>
@@ -841,7 +841,7 @@
 .store .store-box-1 .rg .price .price2:hover{color: #e93e0c;}
 .store .store-box-1 .rg .price .price2 img{
     float: left;
-     margin-right:4px;
+    margin-right:4px;
 }
 
 .sec-house-details .house-details{overflow: hidden;}
@@ -1013,6 +1013,10 @@
     float: left;
     font-weight: bold;
     color:#333333;
+    width: 100px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .renting .house-infor .rent-box .bot .price{
     float: right;

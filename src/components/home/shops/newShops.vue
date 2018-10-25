@@ -486,8 +486,8 @@ position:absolute; right:2px; top:14px;transition:transform 1s; -webkit-transiti
 .mapListB::-webkit-scrollbar-thumb:active {background-color:#f00}
 .mapLT_pz{position: absolute;z-index: 1;}
 .mt_100{position: absolute;top:114px;}
-.mapListB>li{ padding:10px 0; border-bottom:1px solid #ddd; position:relative;height: 100px;}
-.mapListBt>li {padding: 10px 0;border-bottom: 1px solid #ddd;position: relative;height: 100px;width: 360px;margin-left: 10px}
+.mapListB>li{ padding:10px 0; border-bottom:1px solid #ddd; position:relative;height: 120px;}
+.mapListBt>li {padding: 10px 0;border-bottom: 1px solid #ddd;position: relative;height:120px;width: 360px;margin-left: 10px}
 .mapListBt>li:last-child{border:none;}
 .mapListB>li:hover .imgts,.mapListBt>li:hover .imgts { transform:scale(1.04,1.04);-ms-transform:scale(1.04,1.04); -webkit-transform:scale(1.04,1.04); }
 .mapListB>li a.wai_yuan,.mapListBt>li a.wai_yuan{position: absolute;
@@ -807,7 +807,7 @@ input:focus {
 .mapList>p{ font-size:12px; color:#333; height:40px; line-height:40px; text-align:center;}
 .mapListT{ height:28px; line-height:28px; padding-left:54px;  border-bottom:1px solid #ddd;}
 .mapListT>li{ float:left;}
-.mapListT>li>a{ display:block; height:28px; line-height:28px; padding:0 23px; position:relative;cursor: pointer;}
+.mapListT>li>a{ display:block; height:26px; line-height:28px; padding:0 23px; position:relative;cursor: pointer;}
 .mapListT>li:hover>a{ color:#D30000;}
 .mapListT>li.on>a{ background-color:#fff; color:#D30000; }
 .mapListT>li>a.price1>em{ display:block; width:10px; height:12px;
@@ -1069,9 +1069,13 @@ body>img{display: none}
     bottom: -4px;
     left: 44%;}
 /*20180404 地图添加app下载*/
-li.mapapp_dl{padding: 16px 0;height: 90px;border-bottom:1px solid #ddd;margin-left:10px;}
+li.mapapp_dl{padding: 16px 0;height:120px;border-bottom:1px solid #ddd;margin-left:10px;}
 li.mapapp_dl .ewm_left{width: 90px;height: 90px;padding-left: 20px;margin-right: 35px}
 li.mapapp_dl .ewm_des h3{margin:15px 0;font-size: 16px}
 li.mapapp_dl .ewm_des p{font-size: 14px;font-weight: bold}
+
+.dis {
+    display: none;
+}
 
 </style>

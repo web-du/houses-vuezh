@@ -79,6 +79,7 @@
            }
         },
         created(){
+           console.log(typeof(this.answerId))
             this.axios.get(process.env.API_HOST+ 'portal/Interlocution/relevantProblem',{params:{id:this.answerId}}).then((response) => {          
                  this.recruit=response.data.data
                  console.log(this.recruit)

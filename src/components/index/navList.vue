@@ -158,10 +158,18 @@ export default {
                             link: "portal.html#/shops/newShops"
                         },
                         {
-                            name: "我要卖铺",
-                            type: "btn",
-                            link: "portal.html#/shops/sellShops   "
-                        }
+                            name: "写字楼出租",
+                            link: "portal.html#/shops/office"
+                         },
+                         {
+                            name: "写字楼出售",
+                            link: "portal.html#shops/officereg"
+                         }
+                        // {
+                        //     name: "我要卖铺",
+                        //     type: "btn",
+                        //     link: "portal.html#/shops/sellShops   "
+                        // }
                     ]
                 },
                 {
@@ -218,7 +226,7 @@ export default {
                     childNode: [
                         {
                             name: "房产快讯",
-                            link: "portal.html#/houseInfo/newsFlash"
+                            link: "portal.html#/houseInfo/flash"
                         },
                         {
                             name: "热点专题",
