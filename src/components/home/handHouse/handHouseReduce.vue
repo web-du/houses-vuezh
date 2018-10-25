@@ -19,7 +19,7 @@
                     </router-link>
                 </li>
             </ul>
-            <div class="more_box">
+            <!-- <div class="more_box">
                 <div class="more_ssp">
                     <a href="">&lt; 上一页</a>
                     <span class="cpb current">1</span>
@@ -31,7 +31,7 @@
                     <a href="">下一页 &gt;</a>
                 </div>
                 <div class="clear"></div>
-            </div>
+            </div> -->
             <div class="clear"></div>
         </div>
         <div class="help fr">

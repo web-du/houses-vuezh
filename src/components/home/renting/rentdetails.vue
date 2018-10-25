@@ -1042,10 +1042,13 @@
     background:#e93e0c;
     text-align:center;
 }
+.house-infor>ul>li:first-child{width: 100%;}
+.house-infor>ul>li:first-child img{width: 100%;}
+.house-infor>ul>li{width: 50%;}
 .house-infor>ul>li{position:relative;float: left;margin-bottom:10px;}
 .house-infor>ul>li:nth-child(2n+1){float: right;}
 .house-infor>ul>li .sm{position:absolute;width:80px;height:28px;line-height:28px;text-align:center;font-size:14px;color:#fff;background-color:rgba(0,0,0,0.5);left:0;bottom:0;z-index:3;}
-.house-infor>ul>li img{display:block;}
+.house-infor>ul>li img{display:block;width: 100%;}
 .house-infor .quarters .img{margin-right:20px;}
 .house-infor .quarters .img img{display:block;width:220px;height:165px;}
 .house-infor .quarters .name h3 span{font-size:16px;line-height:36px;color:#666;text-decoration: underline;margin-right:20px;}

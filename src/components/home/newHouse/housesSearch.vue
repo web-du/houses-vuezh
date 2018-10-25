@@ -95,7 +95,7 @@ export default {
         getHousesList(data) {
             console.log(data);
             this.axios
-                .post(process.env.API_HOST + "Houselist/getBuilding", data)
+                .post(process.env.API_HOST + "house/Houselist/getBuilding", data)
                 .then(res => {
                     console.log("楼盘搜索列表");
                     if (res.status == 200) {

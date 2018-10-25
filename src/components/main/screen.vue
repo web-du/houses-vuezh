@@ -85,9 +85,9 @@
                         <option v-for="(item, index) in cond.list" :key="index" :value="index">{{item}}</option>
                     </select>
                 </div>
-                <div class="supportChat">
+                <!-- <div class="supportChat">
                     <input type="checkbox" name="roomchat" @click="choiceRoomChat" :checked="curCond[7].list.is_chat == 1" />支持房聊
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="cur_cond">
@@ -193,12 +193,6 @@ export default {
                 {
                     value: "",
                     list: {
-
-                    }
-                },
-                {
-                    value: "",
-                    list: {
                         s_price: "",
                         e_price: ""
                     }
@@ -295,12 +289,10 @@ export default {
                 };
             } else {
                 this.curCond[2].value = item.value;
-                this.curCond[2].list.s_price =
-                    item.sendValue.split("-")[0] == 0
-                        ? ""
-                        : item.sendValue.split("-")[0];
+                this.curCond[2].list.s_price = item.sendValue.split("-")[0] == 0 ? "" : item.sendValue.split("-")[0];
                 this.curCond[2].list.e_price = item.sendValue.split("-")[1];
             }
+            console.log('价格筛选条件')
             this.sendValue();
         },
 
@@ -702,7 +694,6 @@ export default {
 }
 
 .selectbox select {
-    appearance: none;
     width: 110px;
     height: 30px;
     border-radius: 0;

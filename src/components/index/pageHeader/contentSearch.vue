@@ -90,7 +90,7 @@ export default {
     left: 50%;
     margin-left: -337.5px;
     width: 675px;
-    height: 180px;
+    height:215px;
     padding: 20px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.9);

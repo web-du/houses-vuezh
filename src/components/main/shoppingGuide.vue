@@ -25,6 +25,7 @@ export default {
 <style scoped>
 #shoppingGuide {
     width: 100%;
+    margin-bottom: 20px;
 }
 #shoppingGuide .guide_top {
     font-size: 18px;

@@ -119,7 +119,7 @@ export default {};
     width: 82px;
 }
 #helpFindHouse .form .form_line input {
-    width: 180px;
+    width:200px;
     padding: 0 10px;
     line-height: 35px;
     height: 35px;

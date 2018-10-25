@@ -47,12 +47,12 @@ export default {
 
 #selectBox .select input {
     width: 100px;
-    height: 15px;
+    height: 30px;
     background: #fff;
     font-size: 14px;
     color: #999999;
     outline: none;
-    padding: 10px;
+    padding: 0 10px;
     border-radius: 5px;
     cursor: pointer;
     border: 0;
@@ -68,12 +68,13 @@ export default {
 
 #selectBox .option {
     position: absolute;
-    top: 35px;
+    top: 30px;
     left: 0;
     height: 140px;
     overflow: scroll;
     background: #fff;
     z-index: 999;
+    width: 100%;
 }
 
 #selectBox .option li {

@@ -107,9 +107,9 @@ export default {
 
         //接收筛选条件
         receiveScreenCond(obj) {
+            console.log('接收筛选条件')
             console.log(obj);
             var screenCond = this.screenCond;
-            console.log(screenCond);
             var cond = {};
             var newCond = {};
             obj.forEach((item, index) => {
@@ -117,11 +117,13 @@ export default {
             });
             for (var prop in cond) {
                 if (cond[prop] !== "") {
+                    console.log(cond[prop])
                     newCond[prop] = cond[prop];
                 }
             }
             this.screenCond = newCond;
             this.screenCond.page = 1;
+            console.log(this.screenCond);
             this.getHousesList(this.screenCond);
         },
 
