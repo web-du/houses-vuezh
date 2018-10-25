@@ -127,7 +127,7 @@ export default {
                         },
                         {
                             name: "购房知识",
-                            link: "handHouse/PurchaseKnowledge"
+                            link: "encyclopedias/propertyKnowledge"
                         },
                         {
                             name: "我要卖房",
@@ -152,11 +152,6 @@ export default {
                             name: "商铺新盘",
                             link: "shops/newShops"
                         },
-                        // {
-                        //     name: "我要卖铺",
-                        //     type: "btn",
-                        //     link: "shops/sellShops"
-                        // }
                         {
                             name: "写字楼出租",
                             link: "shops/office"
