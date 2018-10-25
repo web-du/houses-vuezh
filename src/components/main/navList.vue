@@ -220,15 +220,15 @@ export default {
                         },
                         {
                             name: "热点专题",
-                            link: "houseInfo/hotTopic"
+                            link: "houseInfo/hotTopic1"
                         },
                         {
                             name: "市场",
-                            link: "houseInfo/market"
+                            link: "houseInfo/bazaar"
                         },
                         {
                             name: "政策",
-                            link: "houseInfo/policy"
+                            link: "houseInfo/videos1"
                         }
                     ]
                 },

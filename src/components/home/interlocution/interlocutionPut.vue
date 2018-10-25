@@ -18,10 +18,10 @@
                     <h2>请描述您的问题</h2>
                     <input type="text" name="" value="" placeholder="标题">
                     <div class="con">
-                        <textarea name="name" placeholder="向广大网友和顾问提问"></textarea>
+                        <textarea name="name" placeholder="向广大网友和顾问提问"  v-model="answertxt"></textarea>
                         <em>0/150</em>
                     </div>
-                    <span>提问</span>
+                    <span @click="subtxt()">提问</span>
                 </div>
                 <div class="notice fr">
                     <h2>如何能获得快速准确的回答？</h2>
@@ -38,10 +38,39 @@
 </template>
 
 <script>
-export default {
-   name:"interlocutionPut"
 
-}
+export default {
+        name:"interlocutionPut",
+       
+        data(){
+           return{
+             recruit:[],
+             answertxt:""  
+           }
+        },
+        created(){
+
+        },
+        methods:{
+          open3() {
+            this.$notify({
+              title: '提交成功',
+              // message: '这是一条成功的提示消息',
+              type: 'success',
+              duration:2000
+            });
+          },
+           subtxt(){
+            this.axios.post(process.env.API_HOST +'portal/Interlocution/postProblem',{cate_id:10,problem_content:this.answertxt,user_id:1}).then((response) => {      
+                console.log(response.data.data) 
+                this.open3()
+                    
+             }).catch((err) => {
+                
+            })
+           }
+        }
+    }
 </script>
 
 <style>
