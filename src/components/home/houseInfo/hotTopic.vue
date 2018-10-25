@@ -176,11 +176,6 @@ export default {
     // },
     data() {
         return {
-            title:'',
-            text:'',
-            Url:'',
-            date:'',
-            source:'',
             infoList:[],
         };
     },

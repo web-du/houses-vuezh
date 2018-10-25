@@ -50,7 +50,7 @@ export default {
     },
     mounted(){
         this.axios.post(process.env.API_HOST +'commonality/message/message_list',{id:this.nowId}).then((response) => {
-            this.infoList=response.data.data
+            this.infoList=response.data.data.data
           
             
            console.log(response)
