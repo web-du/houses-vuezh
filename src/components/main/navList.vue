@@ -127,7 +127,7 @@ export default {
                         },
                         {
                             name: "购房知识",
-                            link: "handHouse/PurchaseKnowledge"
+                            link: "encyclopedias/propertyKnowledge"
                         },
                         {
                             name: "我要卖房",
