@@ -192,7 +192,7 @@ export default {
                         },
                         {
                             name: "租房知识",
-                            link: "renting/rentingKnowledge"
+                            link: "encyclopedias/propertyKnowledge"
                         },
                         {
                             name: "求租",

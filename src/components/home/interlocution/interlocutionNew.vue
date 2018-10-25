@@ -13,7 +13,7 @@
                       <span>{{item.create_time}}</span>
                       <span>浏览量：{{item.post_hits}}</span>
                     </div>
-                     <p v-show="answer(item.answer)"><span>答</span>{{item.answer[0].answer_content}}</p>
+                     <p v-if="answer(item.answer)"><span>答</span>{{item.answer[0].answer_content}}</p>
                   </router-link>
                 </li>
                 <!-- <li>
@@ -183,7 +183,7 @@
                 //         this.classify.push(item)
                 //       }
                 //  });
-                
+                console.log(this.recruit)
              }).catch((err) => {
               
             })
