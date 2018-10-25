@@ -1,7 +1,7 @@
 <template>
     <div id="building">
         <div class="houses_img">
-            <img :src="global.imgurl +houses.house_thumb" />
+            <a href="portal.html#/handHouse/handHousedetail?id=1"><img :src="global.imgurl +houses.house_thumb" /></a>
             <span class="label">直销</span>
             <div class="houses_img_info">
                 <ul>

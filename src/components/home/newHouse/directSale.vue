@@ -1,10 +1,8 @@
 <template>
     <div id="newHouses">
-        <!--面包屑导航-->
-        <crumbs-search></crumbs-search>
         <layout>
             <template slot="screenCond">
-                <screen @sendScreenCond="receiveScreenCond" :directSelling="true"></screen>
+                <screen @sendScreenCond="receiveScreenCond"></screen>
             </template>
             <template slot="housesActive">
                 <!--广告-->
@@ -17,7 +15,12 @@
                     <houses-sort @sendOrderby="receiveOrderBy"></houses-sort>
                 </div>
                 <!--楼盘列表-->
-                <houses-list :houses-list="newHousesList"></houses-list>
+                <div class="houseList">
+                    <h2 v-if="newHousesList.list == 0" class="noResult">暂无房源</h2>
+                    <div v-for="(houses, index) in newHousesList.list" :key="index" v-if="newHousesList.list != 0">
+                        <building :houses="houses"></building>
+                    </div>
+                </div>
                 <!--分页-->
                 <paging :page-num="Math.ceil(newHousesList.tags[screenCond.house_model].num/5)" :cur-page="screenCond.page" v-if="newHousesList.list" @sendPage="receivePage"></paging>
                 <!--猜你喜欢-->
@@ -44,7 +47,6 @@
 </template>
 <script>
 // import axios from "axios";
-import crumbsSearch from "@/components/main/crumbsSearch";
 import layout from "@/components/main/layout";
 import joinVip from "@/components/main/joinVip";
 import shoppingGuide from "@/components/main/shoppingGuide";
@@ -54,7 +56,7 @@ import interlocution from "@/components/main/interlocution";
 import hotHouses from "@/components/main/hotHouses";
 import hotReview from "@/components/main/hotReview";
 import housesActive from "@/components/main/housesActive";
-import housesList from "@/components/main/housesList";
+import building from "@/components/main/building";
 import screen from "@/components/main/screen";
 import housesType from "@/components/main/housesType";
 import housesSort from "@/components/main/housesSort";
@@ -62,7 +64,6 @@ import paging from "@/components/main/paging";
 import recommend from "@/components/main/recommend";
 export default {
     components: {
-        crumbsSearch,
         layout,
         housesActive,
         joinVip,
@@ -75,7 +76,7 @@ export default {
         screen,
         housesType,
         housesSort,
-        housesList,
+        building,
         paging,
         recommend
     },
@@ -85,19 +86,18 @@ export default {
             recHouseList: [],
             screenCond: {
                 page: 1,
-                house_model: 0,
-                is_directselling: 1
+                house_model: 0
             }
         };
     },
     methods: {
         //楼盘搜索列表
         getHousesList(data) {
-            console.log(data)
+            console.log(data);
             this.axios
-                .post(process.env.API_HOST + "Houselist/getNewHouseList", data)
+                .post(process.env.API_HOST + "house/Houselist/getNewHouseList", data)
                 .then(res => {
-                    console.log("直销");
+                    console.log("楼盘搜索列表");
                     if (res.status == 200) {
                         console.log(res);
                         this.newHousesList = res.data.data;
@@ -107,6 +107,7 @@ export default {
 
         //接收筛选条件
         receiveScreenCond(obj) {
+            console.log(obj);
             var screenCond = this.screenCond;
             console.log(screenCond);
             var cond = {};
@@ -114,14 +115,13 @@ export default {
             obj.forEach((item, index) => {
                 cond = Object.assign(screenCond, item.list);
             });
-            console.log(cond)
             for (var prop in cond) {
                 if (cond[prop] !== "") {
                     newCond[prop] = cond[prop];
                 }
             }
-            console.log(newCond)
             this.screenCond = newCond;
+            this.screenCond.page = 1;
             this.getHousesList(this.screenCond);
         },
 
@@ -175,5 +175,11 @@ export default {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #e93e0c;
+}
+
+.noResult {
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
 }
 </style>

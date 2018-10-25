@@ -108,7 +108,7 @@ export default {
         getCurMonthHouses(page, month) {
             console.log(page, month)
             this.axios
-                .post(process.env.API_HOST + "Houselist/getThisMonthHouse", {
+                .post(process.env.API_HOST + "house/Houselist/getThisMonthHouse", {
                     type: 2,
                     page: page,
                     pagesize: 5,

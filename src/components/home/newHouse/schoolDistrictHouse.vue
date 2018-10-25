@@ -89,7 +89,7 @@ export default {
         //楼盘搜索列表
         getHousesList(data) {
             this.axios
-                .post(process.env.API_HOST + "Houselist/schoolSearch", data)
+                .post(process.env.API_HOST + "house/Houselist/schoolSearch", data)
                 .then(res => {
                     console.log("学区搜索");
                     if (res.status == 200) {

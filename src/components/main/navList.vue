@@ -82,11 +82,11 @@ export default {
                             name: "看房团",
                             link: "newHouse/condoTour"
                         },
-                        {
-                            name: "帮你找房",
-                            type: "btn",
-                            link: "newHouse/helpYouFindHouse"
-                        }
+                        // {
+                        //     name: "帮你找房",
+                        //     type: "btn",
+                        //     link: "newHouse/helpYouFindHouse"
+                        // }
                     ]
                 },
                 {
